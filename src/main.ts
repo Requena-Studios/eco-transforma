@@ -1,27 +1,35 @@
-import { registerSW } from 'virtual:pwa-register'
+﻿import { registerSW } from 'virtual:pwa-register'
 registerSW({ immediate: true })
 
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import { Home, initHome } from './pages/home'
+import { EcoScan } from './pages/ecoscan'
+import { EcoGames } from './pages/ecogames'
+import { EcoPontos } from './pages/ecopontos'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+type Route = { view: () => string, init?: () => void }
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+const routes: Record<string, Route> = {
+    '/': { view: Home, init: initHome },
+    '/ecoscan': { view: EcoScan },
+    '/ecogames': { view: EcoGames },
+    '/ecopontos': { view: EcoPontos },
+}
+
+function router() {
+    const hash = location.hash.replace('#', '') || '/'
+    const route = routes[hash] ?? { view: () => '<h2>404</h2><p>Página não encontrada</p>' }
+    const app = document.getElementById('app')
+    if (app) {
+        app.innerHTML = route.view()
+        route.init?.()
+    }
+
+    document.querySelectorAll('nav a').forEach(a => {
+        const href = (a as HTMLAnchorElement).getAttribute('href') || '#/'
+        a.classList.toggle('active', href === `#${hash}`)
+    })
+}
+
+window.addEventListener('hashchange', router)
+window.addEventListener('load', router)

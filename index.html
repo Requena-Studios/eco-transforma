@@ -1,13 +1,51 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnK8…"
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>EcoTransforma</title>
+</head>
+<body>
+    <svg class="app-background" preserveAspectRatio="none" viewBox="0 0 900 900">
+        <rect x="0" y="0" width="900" height="900" fill="#7dc7ff"></rect>
+        <path d="M0 612L75 600C150 588 300 564 450 576.3C600 588.7 750 637.3 825 661.7L900 686L900 901L825 901C750 901 600 901 450 901C300 901 150 901 75 901L0 901Z" fill="#c4ffaa" style="transition: 0.4s cubic-bezier(0.16, 1, 0.3,1);"></path>
+        <path d="M0 778L75 742.7C150 707.3 300 636.7 450 617.8C600 599 750 632 825 648.5L900 665L900 901L825 901C750 901 600 901 450 901C300 901 150 901 75 901L0 901Z" fill="#008a11" style="transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);"></path>
+    </svg>
+
+    <header class="app-header">
+        <div class="app-header-container">
+            <img src="img/logo.png" alt="EcoTransforma" class="logo">
+            <h1>EcoTransforma</h1>
+        </div>
+    </header>
+
+    <main id="app" class="app-main"></main>
+
+    <nav class="app-nav">
+        <a href="#/">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+        <a href="#/ecoscan">
+            <i class="fa-solid fa-camera"></i>
+            <span>EcoScan</span>
+        </a>
+        <a href="#/ecogames">
+            <i class="fa-solid fa-gamepad"></i>
+            <span>EcoJogos</span>
+        </a>
+        <a href="#/ecopontos">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>EcoPontos</span>
+        </a>
+    </nav>
+
     <script type="module" src="/src/main.ts"></script>
-  </body>
+</body>
 </html>

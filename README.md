@@ -1,6 +1,6 @@
 ﻿# EcoTransforma 🌱
 
-**EcoTransforma** é um aplicativo PWA educativo desenvolvido para a Escola Municipal de Jundiaí, com o objetivo de ensinar e incentivar práticas de reciclagem e descarte correto de resíduos.
+**EcoTransforma** é um aplicativo PWA educativo desenvolvido para a EMEB Deputado Ranieri Mazzilli em Jundiaí-SP, com o objetivo de ensinar e incentivar práticas de reciclagem e descarte correto de resíduos.
 
 ## 🎯 Objetivo
 Promover educação ambiental de forma interativa, com uso de:

@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
-     base: '/eco-transforma/',
+    base: '/eco-transforma/',
 
     plugins: [
         VitePWA({
@@ -11,8 +11,8 @@ export default defineConfig({
             manifest: {
                 name: 'EcoTransforma',
                 short_name: 'EcoTransforma',
-                start_url: '/',
-                scope: '/',
+                start_url: '/eco-transforma/',
+                scope: '/eco-transforma/',
                 display: 'standalone',
                 theme_color: '#0a7a3d',
                 background_color: '#ffffff',
