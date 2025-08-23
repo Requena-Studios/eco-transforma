@@ -1,0 +1,54 @@
+[
+  {
+    "q": "O QUE É RECICLAGEM?",
+    "options": [ "É PEGAR ALGO QUE SERIA DESCARTADO E UTILIZAR PARA A CRIAÇÃO DE NOVOS OBJETOS", "JOGAR LIXO NA RUA", "QUEBRAR BRINQUEDOS ANTIGOS" ]
+  },
+  {
+    "q": "QUAL DESSES MATERIAIS PODE SER RECICLADO?",
+    "options": [ "GARRAFA PET", "PAPEL HIGIÊNICO", "RESTOS DE COMIDA" ]
+  },
+  {
+    "q": "O QUE DEVEMOS JOGAR NA LIXEIRA DE RECICLÁVEIS?",
+    "options": [ "TAMPINHA DE GARRAFA", "PAPEL HIGIÊNICO USADO", "CASCA DE OVO" ]
+  },
+  {
+    "q": "QUANTO TEMPO UMA GARRAFA PLÁSTICA DEMORA PARA SE DECOMPOR NA NATUREZA?",
+    "options": [ "DE 200 A 600 ANOS", "1 MÊS", "10 ANOS" ]
+  },
+  {
+    "q": "QUAL DESSAS ATITUDES AJUDA O MEIO AMBIENTE?",
+    "options": [ "PLANTAR ÁRVORES", "DEIXAR A TORNEIRA ABERTA", "JOGAR LIXO NO CHÃO" ]
+  },
+  {
+    "q": "O QUE É UM ECOPONTO?",
+    "options": [ "UM LUGAR PARA DESCARTE DE LIXO ESPECIAL E RECICLÁVEL", "UM PARQUE PARA BRINCAR", "UMA ESCOLA" ]
+  },
+  {
+    "q": "QUAL É A COR DA LIXEIRA PARA PAPEL RECICLÁVEL?",
+    "options": [ "AZUL", "VERDE", "VERMELHA" ]
+  },
+  {
+    "q": "QUAL DESSAS COISAS NÃO PODE SER RECICLADA?",
+    "options": [ "PAPEL HIGIÊNICO SUJO", "GARRAFA PET", "LATA DE REFRIGERANTE" ]
+  },
+  {
+    "q": "COMO PODEMOS AJUDAR NA SUSTENTABILIDADE?",
+    "options": [ "ECONOMIZANDO ÁGUA E ENERGIA", "JOGANDO BRINQUEDOS NA RUA", "USANDO PLÁSTICO SÓ UMA VEZ" ]
+  },
+  {
+    "q": "O QUE SIGNIFICA O SÍMBOLO ♻️?",
+    "options": [ "RECICLAGEM", "BRINQUEDO NOVO", "COMIDA ORGÂNICA" ]
+  },
+  {
+    "q": "QUAL LIXEIRA É PARA VIDRO?",
+    "options": [ "VERDE", "VERMELHA", "AMARELA" ]
+  },
+  {
+    "q": "QUAL LIXEIRA É PARA METAL?",
+    "options": [ "AMARELA", "AZUL", "MARROM" ]
+  },
+  {
+    "q": "QUAL LIXEIRA É PARA PLÁSTICO?",
+    "options": [ "VERMELHA", "VERDE", "AZUL" ]
+  }
+]
