@@ -5,6 +5,7 @@
     --app-header-background-color: #66ff6655;
     --bubble-speech-border-color: #000000b0;
     --bubble-speech-background-color: #55ff5530;
+    --card-white-background-color: #ffffffcc;
 }
 
 html, body {
@@ -25,6 +26,10 @@ html, body {
         max-width: 900px;
         margin: 0 auto;
     }
+}
+
+[hidden] {
+    display: none !important;
 }
 
 .app-header {
@@ -185,6 +190,7 @@ html, body {
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .btn-ghost {
@@ -199,4 +205,360 @@ html, body {
     .btn:active,
     .btn-ghost:active {
         transform: translateY(1px);
+    }
+
+.btn i {
+    display: unset !important;
+}
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    display: grid;
+    place-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    width: min(720px, 92vw);
+    background-color: var(--card-white-background-color);
+    border-radius: 14px;
+    padding: 1rem 1.25rem 1.25rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    border: 1px solid #e6efe9;
+}
+
+.modal-close {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    border: 0;
+    background: transparent;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #355;
+}
+
+.modal-content {
+    line-height: 1.45;
+    max-height: 70vh;
+    overflow: auto;
+    text-transform: uppercase;
+}
+
+    .modal-content h3 {
+        margin: .25rem 0 .75rem;
+    }
+
+    .modal-content p {
+        margin: .4rem 0;
+    }
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    margin-top: .75rem;
+    margin-bottom: .75rem;
+}
+
+    .modal-footer .left,
+    .modal-footer .right {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+
+.modal-progress {
+    font-weight: 700;
+    opacity: .8;
+}
+
+.sobre-icon {
+    font-size: 1.25rem;
+    vertical-align: -2px;
+    margin-right: .35rem;
+}
+
+.fa-sharp-duotone {
+    --fa-primary-opacity: 1;
+    --fa-secondary-opacity: 0.9;
+    font-size: 1.25rem;
+    vertical-align: -2px;
+    margin-right: .35rem;
+}
+
+/* ECOPONTOS */
+.eco-wrap {
+    display: grid;
+    gap: .75rem;
+}
+
+.eco-h2 {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin: .25rem auto .5rem;
+}
+
+.eco-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .75rem;
+}
+
+.eco-card {
+    border: 1px solid #dfe9e3;
+    background: var(--card-white-background-color);
+    border-radius: 12px;
+    padding: .9rem 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    display: grid;
+    gap: .35rem;
+}
+
+.eco-card-hd {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.eco-title {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.eco-address {
+    margin: .2rem 0 .3rem;
+    line-height: 1.35;
+}
+
+.eco-hours {
+    list-style: none;
+    padding: 0;
+    margin: .2rem 0 0;
+    display: grid;
+    gap: .25rem;
+}
+
+.eco-actions {
+    margin-top: .5rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.eco-pager {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    margin-top: .25rem;
+}
+
+.eco-page-indicator {
+    font-weight: 700;
+    opacity: .85;
+}
+
+
+/* ECOJOGOS – SELETOR */
+.games-wrap {
+    display: grid;
+    gap: .75rem;
+}
+
+.games-h2 {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin: .25rem auto .5rem;
+}
+
+.games-selector {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .6rem;
+}
+
+@media (min-width: 640px) {
+    .games-selector {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .games-selector {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.game-card {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    border: 1px solid #dfe9e3;
+    background: var(--card-white-background-color);
+    border-radius: 12px;
+    padding: .75rem .9rem;
+    cursor: pointer;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+    .game-card i {
+        font-size: 1.4rem;
+    }
+
+.game-card-txt small {
+    opacity: .8;
+    display: block;
+    margin-top: .15rem;
+}
+
+/* área do jogo e toolbar */
+.games-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    margin: .25rem 0 .25rem;
+}
+
+.games-title {
+    font-weight: 800;
+}
+
+.game-area {
+    border: 1px solid #dfe9e3;
+    background: var(--card-white-background-color);
+    border-radius: 12px;
+    padding: .9rem 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    min-height: 200px;
+}
+
+/* QUIZ */
+.quiz-wrap {
+    display: grid;
+    gap: .75rem;
+}
+
+.quiz-hd {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    justify-content: space-between;
+}
+
+    .quiz-hd h3 {
+        margin: 0;
+    }
+
+.quiz-progress {
+    opacity: .8;
+    font-weight: 700;
+}
+
+.quiz-stage {
+    display: grid;
+    gap: .6rem;
+}
+
+.quiz-q-text {
+    margin: .2rem 0 .4rem;
+    font-size: 1.05rem;
+}
+
+.quiz-options {
+    display: grid;
+    gap: .5rem;
+}
+
+.quiz-opt {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    border: 1px solid #cfd8d3;
+    background: var(--card-white-background-color);
+    border-radius: 10px;
+    padding: .6rem .75rem;
+    cursor: pointer;
+    text-align: left;
+}
+
+.quiz-opt-letter {
+    display: inline-block;
+    min-width: 2ch;
+    text-align: center;
+    font-weight: 800;
+}
+
+.quiz-opt.is-correct {
+    border-color: #0a7a3d;
+    background: #f0fbf4;
+}
+
+.quiz-opt.is-wrong {
+    border-color: #c53030;
+    background: #fff5f5;
+}
+
+.quiz-next {
+    margin-top: .5rem;
+}
+
+.quiz-end {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    text-align: center;
+}
+
+    .quiz-end i {
+        display: block;
+        margin: 0 auto;
+    }
+
+.quiz-end-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    justify-content: center;
+}
+
+.quiz-ft {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: .5rem;
+}
+
+.update-banner {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0a7a3d;
+    color: #fff;
+    padding: .5rem .75rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.2);
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    z-index: 9999;
+}
+
+    .update-banner button {
+        background: #fff;
+        color: #0a7a3d;
+        border: none;
+        border-radius: 4px;
+        padding: .25rem .5rem;
+        cursor: pointer;
+        font-weight: 600;
     }

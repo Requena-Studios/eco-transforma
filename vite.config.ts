@@ -7,7 +7,7 @@ export default defineConfig({
     plugins: [
         VitePWA({
             registerType: 'autoUpdate',
-            includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
+            includeAssets: [ 'favicon.ico', 'robots.txt', 'img/**', 'icons/**'],
             manifest: {
                 name: 'EcoTransforma',
                 short_name: 'EcoTransforma',
@@ -22,9 +22,23 @@ export default defineConfig({
                     { src: 'pwa-512x512-maskable.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' }
                 ]
             },
-            workbox: {
-                globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
-            }
+            workbox: process.env.NODE_ENV === 'production' ? {
+                globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
+                runtimeCaching: [
+                  {
+                    urlPattern: ({url}) =>
+                      url.pathname.startsWith(`${import.meta.env.BASE_URL}data/`) ||
+                      url.pathname.startsWith('/eco-transforma/data/'),
+                    handler: 'StaleWhileRevalidate',
+                    options: {
+                      cacheName: 'eco-data',
+                      expiration: { maxEntries: 50, maxAgeSeconds: 7*24*60*60 },
+                      cacheableResponse: { statuses: [0, 200] }
+                    }
+                  }
+                ]
+              } : undefined,
+              devOptions: { enabled: true }
         })
     ]
 })
