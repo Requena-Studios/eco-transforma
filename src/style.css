@@ -479,7 +479,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid #dfe9e3;
     background: var(--card-white-background-color);
     border-radius: 12px;
-    padding: .9rem 1rem;
+    padding: .7rem;
     box-shadow: 0 2px 8px rgba(0,0,0,.05);
     min-height: 200px;
 }
