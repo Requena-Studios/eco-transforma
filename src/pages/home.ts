@@ -1,4 +1,4 @@
-import mascoteImg from '/img/mascote.png'
+import mascoteImg from '/img/mascote2.png'
 import { openModal, closeModal } from '../components/modal';
 import { SOBRE_PAGES } from '../content/sobre';
 
@@ -18,12 +18,12 @@ export function Home() {
       <p id="bubble-text" class="bubble-text"></p>
       <div class="hero-actions">
         <button id="prev" class="btn" aria-label="Voltar">
-          <i class="fa-sharp-duotone fa-lg fa-circle-left"
+          <i class="fa-sharp-duotone fa-circle-left"
              style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
         </button>
         <span id="progress" class="progress"></span>
         <button id="next" class="btn" aria-label="Avançar">
-          <i class="fa-sharp-duotone fa-lg fa-circle-right"
+          <i class="fa-sharp-duotone fa-circle-right"
              style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
         </button>
       </div>
@@ -73,10 +73,10 @@ export function initHome() {
 
         const mount = () => {
             openModal(`
-            <h3>
+            <h3 style="display: flex; justify-content: center; align-items: center;">
                 <i class="fa-sharp-duotone fa-circle-info"
                     style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;margin-right:.35rem;"></i>
-                SOBRE
+                SOBRE NÓS
             </h3>
 
             <div class="modal-content" id="sobre-content">${SOBRE_PAGES[page]}</div>

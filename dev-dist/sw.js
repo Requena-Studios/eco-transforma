@@ -67,7 +67,7 @@ if (!self.define) {
     });
   };
 }
-define(['module', './workbox-6244ca5c'], (function (module, workbox) { 'use strict';
+define(['./workbox-54d0af47'], (function (workbox) { 'use strict';
 
   self.skipWaiting();
   workbox.clientsClaim();
@@ -79,22 +79,11 @@ define(['module', './workbox-6244ca5c'], (function (module, workbox) { 'use stri
    */
   workbox.precacheAndRoute([{
     "url": "index.html",
-    "revision": "0.36tlnis035o"
+    "revision": "0.plkbgombmog"
   }], {});
   workbox.cleanupOutdatedCaches();
   workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("index.html"), {
     allowlist: [/^\/$/]
   }));
-  workbox.registerRoute(({
-    url
-  }) => url.pathname.startsWith(`${undefined.BASE_URL}data/`) || url.pathname.startsWith("/eco-transforma/data/"), new workbox.StaleWhileRevalidate({
-    "cacheName": "eco-data",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 50,
-      maxAgeSeconds: 604800
-    }), new workbox.CacheableResponsePlugin({
-      statuses: [0, 200]
-    })]
-  }), 'GET');
 
 }));

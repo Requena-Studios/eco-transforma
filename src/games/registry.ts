@@ -9,14 +9,12 @@ export const GAMES: GameInfo[] = [
     emoji: '❓',
     load: () => import('./quiz').then(m => m.QuizGame),
   },
-
-  // Exemplo futuro:
-  // {
-  //   id: 'drag-trash',
-  //   title: 'ARRASTE PARA A LIXEIRA CERTA',
-  //   subtitle: 'SEPARAÇÃO DE RESÍDUOS',
-  //   icon: 'fa-sharp-duotone fa-recycle',
-  //   emoji: '🗑️',
-  //   load: () => import('./drag-trash').then(m => m.DragTrashGame),
-  // },
+  {
+    id: 'drag-trash',
+    title: 'ARRASTE PARA A LIXEIRA CERTA',
+    subtitle: 'SEPARAÇÃO DE RESÍDUOS',
+    icon: 'fa-sharp-duotone fa-recycle',
+    emoji: '🗑️',
+    load: () => import('./drag-trash').then(m => m.DragTrashGame),
+  },
 ]

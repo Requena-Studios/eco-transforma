@@ -1,0 +1,148 @@
+.dragtrash-wrap {
+    display: grid;
+    gap: .75rem;
+}
+
+.dragtrash-hd {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    justify-content: space-between;
+}
+
+.dragtrash-progress {
+    opacity: .8;
+    font-weight: 700;
+}
+
+.dragtrash-stage {
+    display: grid;
+    gap: .6rem;
+}
+
+.dragtrash-instr {
+    margin: .2rem 0 .4rem;
+    font-size: 1.05rem;
+}
+
+.dragtrash-item-wrap {
+    display: grid;
+    place-items: center;
+}
+
+.dragtrash-item {
+    display: grid;
+    gap: .4rem;
+    border: 1px solid #cfd8d3;
+    background: var(--card-white-background-color);
+    border-radius: 12px;
+    padding: .6rem .75rem;
+    max-width: 92%;
+}
+
+.dragtrash-item-frame {
+    width: auto;
+    height: min(195px, 35vw);
+    aspect-ratio: 4 / 3;
+    border: 1px solid #dfe9e3;
+    border-radius: 10px;
+    background: #fff;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    margin: 0 auto;
+}
+
+.dragtrash-item-name {
+    text-align: center;
+    font-weight: 700;
+}
+
+.dragtrash-bins {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .6rem;
+    margin-top: .4rem;
+}
+
+@media (min-width: 560px) {
+    .dragtrash-bins {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.dragtrash-bin {
+    display: grid;
+    gap: .35rem;
+    align-content: start;
+    justify-items: center;
+    border: 1px solid #dfe9e3;
+    background: var(--card-white-background-color);
+    border-radius: 12px;
+    padding: .5rem .6rem;
+    cursor: pointer;
+}
+
+.dragtrash-bin-frame {
+    width: clamp(70px, 18vw, 110px);
+    aspect-ratio: 1 / 1;
+    border: 2px solid var(--bin-color, #0a7a3d);
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+
+.dragtrash-bin-title {
+    font-size: .9rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.dragtrash-item.is-correct {
+    border-color: #0a7a3d;
+    background: #f0fbf4;
+}
+
+.dragtrash-item.is-wrong {
+    border-color: #c53030;
+    background: #fff5f5;
+}
+
+.dragtrash-bin.is-correct {
+    outline: 2px solid #0a7a3d;
+}
+
+.dragtrash-bin.is-wrong {
+    outline: 2px solid #c53030;
+}
+
+.dragtrash-end {
+    display: grid;
+    gap: .5rem;
+    justify-items: center;
+    text-align: center;
+}
+
+.dragtrash-end-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    justify-content: center;
+}
+
+.dragtrash-ft {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: .5rem;
+}
+
+.dragtrash-wrap .img-fit {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+}

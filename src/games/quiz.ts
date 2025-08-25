@@ -18,6 +18,19 @@ function sample<T>(arr: T[], n: number): T[] {
   return shuffle(arr).slice(0, n)
 }
 
+function uniqueBy<T>(arr: T[], key: (t: T) => string): T[] {
+  const seen = new Set<string>()
+  const out: T[] = []
+  for (const it of arr) {
+    const k = key(it)
+    if (!seen.has(k)) {
+      seen.add(k)
+      out.push(it)
+    }
+  }
+  return out
+}
+
 /** Embaralha opções e calcula o novo índice da correta (que era 0 na origem) */
 function shuffleOptions(q: Q): RunQ {
   const idx = [0,1,2]
@@ -41,7 +54,7 @@ export const QuizGame: Game = {
         </header>
         <div id="quiz-stage" class="quiz-stage"></div>
         <footer class="quiz-ft">
-          <button id="quiz-exit" class="btn btn-ghost" aria-label="Sair do jogo">
+          <button id="quiz-exit" class="btn btn-ghost btn-game-exit" aria-label="Sair do jogo">
             <i class="fa-sharp-duotone fa-circle-left"
                style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
             VOLTAR AOS JOGOS
@@ -73,7 +86,13 @@ export const QuizGame: Game = {
     let score = 0
 
     function startNewRun() {
-      QUESTIONS = sample(bank, TOTAL).map(shuffleOptions)
+      // Garante perguntas únicas por texto e ajusta o total exibido
+      const uniqueBank = uniqueBy(bank, b => (b.q || '').trim().toLowerCase())
+      const runTotal = Math.min(TOTAL, uniqueBank.length)
+      const totalEl = root.querySelector('#quiz-total') as HTMLSpanElement | null
+      if (totalEl) totalEl.textContent = String(runTotal)
+
+      QUESTIONS = sample(uniqueBank, runTotal).map(shuffleOptions)
       index = 0
       score = 0
       renderQuestion()

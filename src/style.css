@@ -13,8 +13,9 @@ html, body {
     margin: 0;
     width: 100vmin;
     height: 100vmax;
-    background-color: black;
+    background-color: #cbffdf;
     overflow: hidden;
+    margin: 0 auto;
 }
 
     html * {
@@ -32,6 +33,10 @@ html, body {
     display: none !important;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
 .app-header {
     position: sticky;
     box-sizing: border-box;
@@ -44,8 +49,8 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: .5rem;
-    padding: .3rem;
+    gap: 1rem;
+    padding: .1rem;
     background: var(--app-header-background-color);
 }
 
@@ -60,13 +65,13 @@ html, body {
 }
 
 .logo {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
 }
 
 .app-main {
     padding: 1rem;
-    height: 100%;
+    height: calc(100dvh - 150px);
     margin: 0 auto;
 }
 
@@ -77,36 +82,43 @@ html, body {
     right: 0;
     margin: 0 auto;
     max-width: 900px;
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    background: #eee;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: .2rem;
+    background: #e2ffd7e1;
     border-top: 1px solid var(--border);
     z-index: 1000;
     padding-bottom: env(safe-area-inset-bottom);
 }
 
-    .app-nav a {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: .3rem;
-        padding: .5rem 0 .6rem;
-        text-decoration: none;
-        color: #444;
-        font-weight: 600;
-        font-size: .8rem;
+    .app-nav .app-nav-item {
+        padding: .2rem;
     }
 
-        .app-nav a i {
-            font-size: 1.2rem;
-            line-height: 1;
+        .app-nav .app-nav-item a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .3rem;
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            font-size: .8rem;
+            border-radius: 2rem;
+            padding: .3rem .6rem;
         }
 
-        .app-nav a.active, .app-nav a.active i {
-            color: var(--active-menu-color);
-        }
+            .app-nav .app-nav-item a i {
+                font-size: 1rem;
+                line-height: 1;
+            }
+
+            .app-nav .app-nav-item a.active {
+                color: var(--active-menu-color);
+                background: #29d5674c;
+            }
 
 .hero {
     display: flex;
@@ -114,16 +126,30 @@ html, body {
     align-items: center;
     justify-content: center;
     gap: .5rem;
+    height: 100%;
+    min-height: 0;
+}
+
+.hero-figure {
+    flex: 1 1 0%;
+    min-height: 0;
+    aspect-ratio: 10 / 13;
+}
+
+.hero > :not(.hero-figure) {
+    flex: 0 0 auto;
 }
 
 .hero-mascote {
-    width: auto;
-    height: 500px;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    aspect-ratio: 10 / 13;
     object-fit: contain;
 }
 
 .hero-bubble-container {
-    height: 200px;
+    margin-bottom: 1em;
 }
 
 .hero-bubble {
@@ -135,8 +161,7 @@ html, body {
     display: inline-block;
     position: relative;
     padding: 10px;
-    font-size: 16px;
-    margin: 10px;
+    font-size: .9rem;
     border-radius: 16px;
     box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.2), inset -1px -1px 0px rgba(0, 0, 0, 0.6), 0 14px 6px -10px rgba(0, 0, 0, 0.3);
 }
@@ -156,7 +181,8 @@ html, body {
 
 .bubble-text {
     max-width: 80vw;
-    padding: .5rem 1rem;
+    padding: .3rem;
+    margin: 0 auto;
     text-align: center;
     font-weight: 500;
 }
@@ -166,8 +192,12 @@ html, body {
     align-items: center;
     justify-content: center;
     gap: .5rem;
-    margin-top: .6rem;
+    margin-top: .5rem;
 }
+
+    .hero-actions i {
+        font-size: 1rem;
+    }
 
 .progress {
     font-weight: 600;
@@ -186,7 +216,7 @@ html, body {
     background: var(--button-color);
     color: #fff;
     border: none;
-    padding: .75rem;
+    padding: .5rem;
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
@@ -221,7 +251,7 @@ html, body {
 }
 
 .modal {
-    width: min(720px, 92vw);
+    width: min(720px, 80vw);
     background-color: var(--card-white-background-color);
     border-radius: 14px;
     padding: 1rem 1.25rem 1.25rem;
@@ -235,15 +265,15 @@ html, body {
     top: 6px;
     border: 0;
     background: transparent;
-    font-size: 1.6rem;
+    font-size: 3rem;
     line-height: 1;
     cursor: pointer;
-    color: #355;
+    color: #fff;
 }
 
 .modal-content {
-    line-height: 1.45;
-    max-height: 70vh;
+    line-height: 1.4;
+    max-height: 80vh;
     overflow: auto;
     text-transform: uppercase;
 }
@@ -261,8 +291,7 @@ html, body {
     align-items: center;
     justify-content: space-between;
     gap: .5rem;
-    margin-top: .75rem;
-    margin-bottom: .75rem;
+    margin-top: .5rem;
 }
 
     .modal-footer .left,
@@ -280,7 +309,6 @@ html, body {
 .sobre-icon {
     font-size: 1.25rem;
     vertical-align: -2px;
-    margin-right: .35rem;
 }
 
 .fa-sharp-duotone {
@@ -288,7 +316,6 @@ html, body {
     --fa-secondary-opacity: 0.9;
     font-size: 1.25rem;
     vertical-align: -2px;
-    margin-right: .35rem;
 }
 
 /* ECOPONTOS */
@@ -314,7 +341,7 @@ html, body {
     border: 1px solid #dfe9e3;
     background: var(--card-white-background-color);
     border-radius: 12px;
-    padding: .9rem 1rem;
+    padding: .7rem .7rem;
     box-shadow: 0 2px 8px rgba(0,0,0,.05);
     display: grid;
     gap: .35rem;
@@ -333,7 +360,11 @@ html, body {
 
 .eco-address {
     margin: .2rem 0 .3rem;
-    line-height: 1.35;
+    line-height: 1.2;
+    font-size: .9rem;
+    display: flex;
+    align-items: center;
+    gap: .3rem;
 }
 
 .eco-hours {
@@ -342,13 +373,26 @@ html, body {
     margin: .2rem 0 0;
     display: grid;
     gap: .25rem;
+    font-size: .8rem;
 }
 
+    .eco-hours li {
+        display: flex;
+        align-items: center;
+        gap: .3rem;
+    }
+
 .eco-actions {
-    margin-top: .5rem;
+    margin: 0 0 0 auto;
     display: flex;
     justify-content: flex-start;
+    font-size: .8rem;
 }
+
+.eco-actions i {
+    font-size: .8rem;
+}
+
 
 .eco-pager {
     display: flex;
@@ -438,6 +482,10 @@ html, body {
     padding: .9rem 1rem;
     box-shadow: 0 2px 8px rgba(0,0,0,.05);
     min-height: 200px;
+}
+
+.btn-game-exit{
+    margin: 0 auto;
 }
 
 /* QUIZ */
