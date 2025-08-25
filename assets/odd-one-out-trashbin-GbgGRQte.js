@@ -1,4 +1,4 @@
-import{j as C,p as V,r as D,g as N,s as q,i as B,l as U,a as w,c as j,b as G,d as k,e as F}from"./sacola-BO_g5ryX.js";import{l as H,a as J,b as X,c as Q}from"./lixeira-metal-D2-mSb9Q.js";const h=10,$=[{id:"papel",title:"PAPEL",color:"#3087b2",img:H},{id:"plastico",title:"PLÁSTICO",color:"#cd3623",img:J},{id:"metal",title:"METAL",color:"#e8ae29",img:X},{id:"vidro",title:"VIDRO",color:"#488f2e",img:Q}],p=[{name:"JORNAL",type:"papel",img:C},{name:"CAIXA DE PAPELÃO",type:"papel",img:V},{name:"REVISTA",type:"papel",img:D},{name:"GARRAFA PET",type:"plastico",img:N},{name:"SACO PLÁSTICO",type:"plastico",img:q},{name:"POTE DE IOGURTE",type:"plastico",img:B},{name:"LATA DE REFRI",type:"metal",img:U},{name:"PAPEL ALUMÍNIO",type:"metal",img:w},{name:"CLIPES",type:"metal",img:j},{name:"POTE DE VIDRO",type:"vidro",img:G},{name:"GARRAFA DE VIDRO",type:"vidro",img:k},{name:"COPO DE VIDRO",type:"vidro",img:F}];function L(l){const a=l.slice();for(let r=a.length-1;r>0;r--){const E=Math.floor(Math.random()*(r+1));[a[r],a[E]]=[a[E],a[r]]}return a}function R(l,a){return L(l).slice(0,a)}const _={async mount(l){l.innerHTML=`
+import{j as C,p as V,r as D,g as N,s as q,i as B,l as U,a as w,c as j,b as G,d as k,e as F}from"./sacola-BO_g5ryX.js";import{l as H,a as J,b as Q,c as X}from"./lixeira-metal-D2-mSb9Q.js";const h=10,$=[{id:"papel",title:"PAPEL",color:"#3087b2",img:H},{id:"plastico",title:"PLÁSTICO",color:"#cd3623",img:J},{id:"metal",title:"METAL",color:"#e8ae29",img:Q},{id:"vidro",title:"VIDRO",color:"#488f2e",img:X}],p=[{name:"JORNAL",type:"papel",img:C},{name:"CAIXA DE PAPELÃO",type:"papel",img:V},{name:"REVISTA",type:"papel",img:D},{name:"GARRAFA PET",type:"plastico",img:N},{name:"SACO PLÁSTICO",type:"plastico",img:q},{name:"POTE DE IOGURTE",type:"plastico",img:B},{name:"LATA DE REFRI",type:"metal",img:U},{name:"PAPEL ALUMÍNIO",type:"metal",img:w},{name:"CLIPES",type:"metal",img:j},{name:"POTE DE VIDRO",type:"vidro",img:G},{name:"GARRAFA DE VIDRO",type:"vidro",img:k},{name:"COPO DE VIDRO",type:"vidro",img:F}];function L(l){const a=l.slice();for(let r=a.length-1;r>0;r--){const E=Math.floor(Math.random()*(r+1));[a[r],a[E]]=[a[E],a[r]]}return a}function R(l,a){return L(l).slice(0,a)}const _={async mount(l){l.innerHTML=`
       <div class="ootb-wrap shout">
         <header class="ootb-hd">
           <i class="fa-sharp-duotone fa-recycle"
@@ -19,9 +19,9 @@ import{j as C,p as V,r as D,g as N,s as q,i as B,l as U,a as w,c as j,b as G,d a
           </button>
         </footer>
       </div>
-    `;const a=l.querySelector("#ootb-stage"),r=l.querySelector("#ootb-pos");l.querySelector("#ootb-exit").addEventListener("click",()=>document.dispatchEvent(new CustomEvent("game:exit")));let c=[],d=0,b=0,u=!1;function T(){const o={papel:p.filter(e=>e.type==="papel"),plastico:p.filter(e=>e.type==="plastico"),metal:p.filter(e=>e.type==="metal"),vidro:p.filter(e=>e.type==="vidro")},i=["papel","plastico","metal","vidro"],n=L(i),t=Math.floor(h/i.length),y=h%i.length,g={papel:t,plastico:t,metal:t,vidro:t};for(let e=0;e<y;e++)g[n[e]]++;const f=new Set;let s=[];for(const e of i){const A=Math.min(g[e],o[e].length),I=R(o[e],A);for(const O of I)f.has(O)||(f.add(O),s.push(O))}const m=Math.min(h,p.length);if(s.length<m){const e=p.filter(I=>!f.has(I)),A=R(e,Math.min(e.length,m-s.length));s=s.concat(A)}const v=l.querySelector("#ootb-total");v&&(v.textContent=String(m)),c=L(s).slice(0,m),d=0,b=0,S()}function S(){const o=c[d];r.textContent=String(d+1),u=!1,a.innerHTML=`
+    `;const a=l.querySelector("#ootb-stage"),r=l.querySelector("#ootb-pos");l.querySelector("#ootb-exit").addEventListener("click",()=>document.dispatchEvent(new CustomEvent("game:exit")));let c=[],d=0,b=0,u=!1;function S(){const o={papel:p.filter(e=>e.type==="papel"),plastico:p.filter(e=>e.type==="plastico"),metal:p.filter(e=>e.type==="metal"),vidro:p.filter(e=>e.type==="vidro")},i=["papel","plastico","metal","vidro"],n=L(i),t=Math.floor(h/i.length),y=h%i.length,g={papel:t,plastico:t,metal:t,vidro:t};for(let e=0;e<y;e++)g[n[e]]++;const f=new Set;let s=[];for(const e of i){const A=Math.min(g[e],o[e].length),I=R(o[e],A);for(const O of I)f.has(O)||(f.add(O),s.push(O))}const m=Math.min(h,p.length);if(s.length<m){const e=p.filter(I=>!f.has(I)),A=R(e,Math.min(e.length,m-s.length));s=s.concat(A)}const v=l.querySelector("#ootb-total");v&&(v.textContent=String(m)),c=L(s).slice(0,m),d=0,b=0,T()}function T(){const o=c[d];r.textContent=String(d+1),u=!1,a.innerHTML=`
         <div class="ootb-q">
-          <p class="ootb-instr">Toque na lixeira correta para classificar o item.</p>
+          <p class="ootb-instr">Qual a lixeira correta para o item destacado?</p>
 
           <div class="ootb-items-container">
             <div class="ootb-bins">
@@ -60,7 +60,7 @@ import{j as C,p as V,r as D,g as N,s as q,i as B,l as U,a as w,c as j,b as G,d a
         ${m?"FINALIZAR":"PRÓXIMA"}
         <i class="fa-sharp-duotone fa-circle-right"
            style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;margin-left:.35rem;"></i>
-      `,s.addEventListener("click",P),document.getElementById("ootb-stage")?.appendChild(s)}function P(){d++,d<c.length?S():M()}function M(){const o=Math.round(b/c.length*100),i=o>=80?"PARABÉNS! 🌟":o>=50?"BOA! 👍":"VAMOS TENTAR DE NOVO? 💪",n=document.getElementById("ootb-stage");n.innerHTML=`
+      `,s.addEventListener("click",P),document.getElementById("ootb-stage")?.appendChild(s)}function P(){d++,d<c.length?T():M()}function M(){const o=Math.round(b/c.length*100),i=o>=80?"PARABÉNS! 🌟":o>=50?"BOA! 👍":"VAMOS TENTAR DE NOVO? 💪",n=document.getElementById("ootb-stage");n.innerHTML=`
         <div class="ootb-end">
           <i class="fa-sharp-duotone fa-trophy"
              style="--fa-primary-color:#f59e0b;--fa-secondary-color:#ffe5a3;font-size:2rem;"></i>
@@ -75,4 +75,4 @@ import{j as C,p as V,r as D,g as N,s as q,i as B,l as U,a as w,c as j,b as G,d a
             </button>
           </div>
         </div>
-      `,n.querySelector("#ootb-retry").addEventListener("click",T)}T()}};export{_ as OddOneOutTrashbinGame};
+      `,n.querySelector("#ootb-retry").addEventListener("click",S)}S()}};export{_ as OddOneOutTrashbinGame};
