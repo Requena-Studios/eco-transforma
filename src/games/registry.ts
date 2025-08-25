@@ -16,5 +16,13 @@ export const GAMES: GameInfo[] = [
     icon: 'fa-sharp-duotone fa-recycle',
     emoji: '🗑️',
     load: () => import('./drag-trash').then(m => m.DragTrashGame),
-  },
+    },
+    {
+        id: 'memory-match',
+        title: 'MEMÓRIA: ITENS E LIXEIRAS',
+        subtitle: 'COMBINE OS PARES ♻️',
+        icon: 'fa-sharp-duotone fa-cards',
+        emoji: '🃏',
+        load: () => import('./memory-match').then(m => m.MemoryMatchGame),
+    },
 ]
