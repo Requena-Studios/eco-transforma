@@ -1,10 +1,26 @@
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
+function buildVersion() {
+    const d = new Date()
+    const pad = (n: number, l = 2) => String(n).padStart(l, '0')
+    return `${d.getFullYear()}.${pad(d.getMonth() + 1)}${pad(d.getDate())}.${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}`
+}
+
+const ECO_VERSION = buildVersion()
+
 export default defineConfig({
     base: '/eco-transforma/',
 
     plugins: [
+        {
+            name: 'eco-inject-version',
+            enforce: 'pre',
+            transformIndexHtml(html) {
+                return html.replace('<html', `<html data-eco-versao="${ECO_VERSION}"`)
+            },
+        },
+
         VitePWA({
             registerType: 'autoUpdate',
             includeAssets: [ 'favicon.ico', 'robots.txt', 'img/**', 'icons/**'],
@@ -76,9 +92,7 @@ export default defineConfig({
                 globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
                 runtimeCaching: [
                   {
-                    urlPattern: ({url}) =>
-                      url.pathname.startsWith(`${import.meta.env.BASE_URL}data/`) ||
-                      url.pathname.startsWith('/eco-transforma/data/'),
+                    urlPattern: /^\/eco-transforma\/data\//,
                     handler: 'StaleWhileRevalidate',
                     options: {
                       cacheName: 'eco-data',
