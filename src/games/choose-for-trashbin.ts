@@ -149,7 +149,7 @@ export const ChooseForTrashbinGame: Game = {
 
             stage.innerHTML = `
         <div class="cftb-q">
-          <p class="cftb-instr">Qual objeto vai na lixeira destacada?</p>
+          <p class="cftb-instr">Qual objeto vai na lixeira?</p>
 
           <div class="cftb-items-container">
             <!-- LADO ESQUERDO: 2 opções -->

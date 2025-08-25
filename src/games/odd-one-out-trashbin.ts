@@ -156,7 +156,7 @@ export const OddOneOutTrashbinGame: Game = {
 
             stage.innerHTML = `
         <div class="ootb-q">
-          <p class="ootb-instr">Qual a lixeira correta para o item destacado?</p>
+          <p class="ootb-instr">Em qual lixeira vai o objeto?</p>
 
           <div class="ootb-items-container">
             <div class="ootb-bins">
