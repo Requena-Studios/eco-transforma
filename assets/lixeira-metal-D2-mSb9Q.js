@@ -1,1 +1,0 @@
-const a="/eco-transforma/img/drag-trash/lixeira-plastico.png",r="/eco-transforma/img/drag-trash/lixeira-papel.png",i="/eco-transforma/img/drag-trash/lixeira-vidro.png",s="/eco-transforma/img/drag-trash/lixeira-metal.png";export{a,s as b,i as c,r as l};
