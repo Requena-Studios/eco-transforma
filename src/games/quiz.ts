@@ -46,7 +46,7 @@ export const QuizGame: Game = {
       <div class="quiz-wrap shout">
         <header class="quiz-hd">
           <i class="fa-sharp-duotone fa-circle-question"
-             style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+            ></i>
           <h3>QUIZ DA RECICLAGEM</h3>
           <div class="quiz-progress">
             <span id="quiz-pos">1</span>/<span id="quiz-total">${TOTAL}</span>
@@ -56,7 +56,7 @@ export const QuizGame: Game = {
         <footer class="quiz-ft">
           <button id="quiz-exit" class="btn btn-ghost btn-game-exit" aria-label="Sair do jogo">
             <i class="fa-sharp-duotone fa-circle-left"
-               style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+              ></i>
             VOLTAR AOS JOGOS
           </button>
         </footer>
@@ -127,7 +127,7 @@ export const QuizGame: Game = {
           b.classList.add('is-correct')
           b.insertAdjacentHTML('beforeend', `
             <i class="fa-sharp-duotone fa-circle-check"
-               style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;margin-left:.35rem;"></i>
+               style="margin-left:.35rem;"></i>
           `)
         }
         if (k === i && i !== q.answer) {
@@ -146,7 +146,7 @@ export const QuizGame: Game = {
       next.innerHTML = `
         ${last ? 'FINALIZAR' : 'PRÓXIMA'}
         <i class="fa-sharp-duotone fa-circle-right"
-           style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;margin-left:.35rem;"></i>
+           style="margin-left:.35rem;"></i>
       `
       next.addEventListener('click', advance)
       stage.appendChild(next)
@@ -171,7 +171,7 @@ export const QuizGame: Game = {
           <div class="quiz-end-actions">
             <button id="quiz-retry" class="btn">
               <i class="fa-sharp-duotone fa-rotate-right"
-                 style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;margin-right:.35rem;"></i>
+                 style="margin-right:.35rem;"></i>
               JOGAR NOVAMENTE
             </button>
           </div>

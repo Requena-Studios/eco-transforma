@@ -64,33 +64,33 @@ function card(ep: Ecoponto) {
     <article class="eco-card" data-id="${ep.id}">
       <header class="eco-card-hd">
         <i class="fa-sharp-duotone fa-location-dot"
-           style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+          ></i>
         <h3 class="eco-title">${ep.nome}</h3>
 
         <div class="eco-actions">
             <a class="btn" href="${mapsUrl}" target="_blank" rel="noopener"
                aria-label="Abrir no Google Maps">
               <i class="fa-sharp-duotone fa-route"
-                 style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;margin-right:.35rem;"></i>
+                 style="margin-right:.35rem;"></i>
             </a>
         </div>
       </header>
 
       <p class="eco-address">
         <i class="fa-sharp-duotone fa-map-location-dot"
-           style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+          ></i>
         ${ep.endereco}
       </p>
 
       <ul class="eco-hours">
         <li>
           <i class="fa-sharp-duotone fa-calendar-days"
-             style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+            ></i>
           ${ep.semana}
         </li>
         <li>
           <i class="fa-sharp-duotone fa-calendar-day"
-             style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+            ></i>
           ${ep.sabado}
         </li>
       </ul>
@@ -103,7 +103,7 @@ export function EcoPontos() {
     <section class="eco-wrap shout">
       <h2 class="eco-h2">
         <i class="fa-sharp-duotone fa-recycle"
-           style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+          ></i>
         ECOPONTOS DE JUNDIAÍ
       </h2>
 
@@ -112,14 +112,14 @@ export function EcoPontos() {
       <div class="eco-pager">
         <button id="eco-prev" class="btn btn-ghost" aria-label="Página anterior">
           <i class="fa-sharp-duotone fa-circle-left"
-             style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+            ></i>
         </button>
 
         <span id="eco-page" class="eco-page-indicator">1</span>
 
         <button id="eco-next" class="btn" aria-label="Próxima página">
           <i class="fa-sharp-duotone fa-circle-right"
-             style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+            ></i>
         </button>
       </div>
     </section>

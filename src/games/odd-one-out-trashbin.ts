@@ -1,23 +1,23 @@
 import type { Game } from './types'
 import './odd-one-out-trashbin.css'
 
-import aluminioImg from '/img/drag-trash/aluminio.png'
-import clipesImg from '/img/drag-trash/clipes.png'
-import copoVidroImg from '/img/drag-trash/copo_vidro.png'
-import garrafaPetImg from '/img/drag-trash/garrafa_pet.png'
-import garrafaVidroImg from '/img/drag-trash/garrafa_vidro.png'
-import iogurteImg from '/img/drag-trash/iogurte.png'
-import jornalImg from '/img/drag-trash/jornal.png'
-import lataImg from '/img/drag-trash/lata.png'
-import papelaoImg from '/img/drag-trash/papelao.png'
-import poteVidroImg from '/img/drag-trash/pote_vidro.png'
-import revistaImg from '/img/drag-trash/revista.png'
-import sacolaImg from '/img/drag-trash/sacola.png'
+import aluminioImg from '/img/drag-trash/aluminio.webp'
+import clipesImg from '/img/drag-trash/clipes.webp'
+import copoVidroImg from '/img/drag-trash/copo_vidro.webp'
+import garrafaPetImg from '/img/drag-trash/garrafa_pet.webp'
+import garrafaVidroImg from '/img/drag-trash/garrafa_vidro.webp'
+import iogurteImg from '/img/drag-trash/iogurte.webp'
+import jornalImg from '/img/drag-trash/jornal.webp'
+import lataImg from '/img/drag-trash/lata.webp'
+import papelaoImg from '/img/drag-trash/papelao.webp'
+import poteVidroImg from '/img/drag-trash/pote_vidro.webp'
+import revistaImg from '/img/drag-trash/revista.webp'
+import sacolaImg from '/img/drag-trash/sacola.webp'
 
-import lixeiraPlasticoImg from '/img/drag-trash/lixeira-plastico.png'
-import lixeiraPapelImg from '/img/drag-trash/lixeira-papel.png'
-import lixeiraVidroImg from '/img/drag-trash/lixeira-vidro.png'
-import lixeiraMetalImg from '/img/drag-trash/lixeira-metal.png'
+import lixeiraPlasticoImg from '/img/drag-trash/lixeira-plastico.webp'
+import lixeiraPapelImg from '/img/drag-trash/lixeira-papel.webp'
+import lixeiraVidroImg from '/img/drag-trash/lixeira-vidro.webp'
+import lixeiraMetalImg from '/img/drag-trash/lixeira-metal.webp'
 
 type BinType = 'papel' | 'plastico' | 'metal' | 'vidro'
 
@@ -76,7 +76,7 @@ export const OddOneOutTrashbinGame: Game = {
       <div class="ootb-wrap shout">
         <header class="ootb-hd">
           <i class="fa-sharp-duotone fa-recycle"
-             style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+            ></i>
           <h3>TOQUE NA LIXEIRA CERTA</h3>
           <div class="ootb-progress">
             <span id="ootb-pos">1</span>/<span id="ootb-total">${TOTAL}</span>
@@ -88,7 +88,7 @@ export const OddOneOutTrashbinGame: Game = {
         <footer class="ootb-ft">
           <button id="ootb-exit" class="btn btn-ghost btn-game-exit" aria-label="Sair do jogo">
             <i class="fa-sharp-duotone fa-circle-left"
-               style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+              ></i>
             VOLTAR AOS JOGOS
           </button>
         </footer>
@@ -228,7 +228,7 @@ export const OddOneOutTrashbinGame: Game = {
             next.innerHTML = `
         ${last ? 'FINALIZAR' : 'PRÓXIMA'}
         <i class="fa-sharp-duotone fa-circle-right"
-           style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;margin-left:.35rem;"></i>
+           style="margin-left:.35rem;"></i>
       `
             next.addEventListener('click', advance)
             const s = document.getElementById('ootb-stage') as HTMLDivElement | null
@@ -255,7 +255,7 @@ export const OddOneOutTrashbinGame: Game = {
           <div class="ootb-end-actions">
             <button id="ootb-retry" class="btn">
               <i class="fa-sharp-duotone fa-rotate-right"
-                 style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;margin-right:.35rem;"></i>
+                 style="margin-right:.35rem;"></i>
               JOGAR NOVAMENTE
             </button>
           </div>

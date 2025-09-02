@@ -6,7 +6,7 @@ let currentGame: Game | null = null
 function gameCardHTML(id: string, title: string, subtitle: string | undefined, icon: string, emoji?: string) {
   return /*html*/`
     <button class="game-card" data-id="${id}" aria-label="${title}">
-      <i class="${icon}" style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+      <i class="${icon}"></i>
       <div class="game-card-txt">
         <strong>${emoji ? `${emoji} ` : ''}${title}</strong>
         ${subtitle ? `<small>${subtitle}</small>` : ''}
@@ -19,7 +19,7 @@ export function EcoGames() {
   return /*html*/`
     <section class="games-wrap shout">
       <h2 class="games-h2">
-        <i class="fa-sharp-duotone fa-gamepad" style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+        <i class="fa-sharp-duotone fa-gamepad"></i>
         ECOJOGOS
       </h2>
 

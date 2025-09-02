@@ -1,18 +1,18 @@
 import type { Game } from './types'
 import './memory-match.css'
 
-import aluminioImg from '/img/drag-trash/aluminio.png'
-import clipesImg from '/img/drag-trash/clipes.png'
-import copoVidroImg from '/img/drag-trash/copo_vidro.png'
-import garrafaPetImg from '/img/drag-trash/garrafa_pet.png'
-import garrafaVidroImg from '/img/drag-trash/garrafa_vidro.png'
-import iogurteImg from '/img/drag-trash/iogurte.png'
-import jornalImg from '/img/drag-trash/jornal.png'
-import lataImg from '/img/drag-trash/lata.png'
-import papelaoImg from '/img/drag-trash/papelao.png'
-import poteVidroImg from '/img/drag-trash/pote_vidro.png'
-import revistaImg from '/img/drag-trash/revista.png'
-import sacolaImg from '/img/drag-trash/sacola.png'
+import aluminioImg from '/img/drag-trash/aluminio.webp'
+import clipesImg from '/img/drag-trash/clipes.webp'
+import copoVidroImg from '/img/drag-trash/copo_vidro.webp'
+import garrafaPetImg from '/img/drag-trash/garrafa_pet.webp'
+import garrafaVidroImg from '/img/drag-trash/garrafa_vidro.webp'
+import iogurteImg from '/img/drag-trash/iogurte.webp'
+import jornalImg from '/img/drag-trash/jornal.webp'
+import lataImg from '/img/drag-trash/lata.webp'
+import papelaoImg from '/img/drag-trash/papelao.webp'
+import poteVidroImg from '/img/drag-trash/pote_vidro.webp'
+import revistaImg from '/img/drag-trash/revista.webp'
+import sacolaImg from '/img/drag-trash/sacola.webp'
 
 type BinType = 'papel' | 'plastico' | 'metal' | 'vidro'
 
@@ -74,7 +74,7 @@ export const MemoryMatchGame: Game = {
       <div class="mm-wrap shout">
         <header class="mm-hd">
           <i class="fa-sharp-duotone fa-cards"
-             style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+            ></i>
           <h3>MEMÓRIA: ITENS E LIXEIRAS</h3>
           <div class="mm-progress">
             <span id="mm-found">0</span>/<span id="mm-total">${PAIRS}</span>
@@ -86,7 +86,7 @@ export const MemoryMatchGame: Game = {
         <footer class="mm-ft">
           <button id="mm-exit" class="btn btn-ghost btn-game-exit" aria-label="Sair do jogo">
             <i class="fa-sharp-duotone fa-circle-left"
-               style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+              ></i>
             VOLTAR AOS JOGOS
           </button>
         </footer>
@@ -158,7 +158,7 @@ export const MemoryMatchGame: Game = {
               <div class="mm-card-inner">
                 <div class="mm-card-face mm-card-front">
                   <i class="fa-sharp-duotone fa-recycle"
-                     style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;"></i>
+                    ></i>
                 </div>
                 <div class="mm-card-face mm-card-back">
                   <div class="mm-card-imgframe">
@@ -235,7 +235,7 @@ export const MemoryMatchGame: Game = {
           <div class="mm-end-actions">
             <button id="mm-retry" class="btn">
               <i class="fa-sharp-duotone fa-rotate-right"
-                 style="--fa-primary-color:#0a7a3d;--fa-secondary-color:#8fd19a;margin-right:.35rem;"></i>
+                 style="margin-right:.35rem;"></i>
               JOGAR NOVAMENTE
             </button>
           </div>

@@ -10,6 +10,10 @@
     justify-content: space-between;
 }
 
+.mm-ft{
+    margin-top: .5rem;
+}
+
 .mm-progress {
     font-weight: 700;
 }
@@ -28,6 +32,8 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0.4rem;
+    justify-items: center;
+    align-items: center;
 }
 
 .mm-card {
