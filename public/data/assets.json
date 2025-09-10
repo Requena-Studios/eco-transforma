@@ -1,0 +1,45 @@
+{
+  "bins": [
+    { "id": "papel", "title": "PAPEL", "color": "#3087b2", "img": "assets/lixeira-papel.webp" },
+    { "id": "plastico", "title": "PLÁSTICO", "color": "#cd3623", "img": "assets/lixeira-plastico.webp" },
+    { "id": "organico", "title": "ORGÂNICO", "color": "#795548", "img": "assets/lixeira-organico.webp" },
+    { "id": "metal", "title": "METAL", "color": "#e8ae29", "img": "assets/lixeira-metal.webp" },
+    { "id": "vidro", "title": "VIDRO", "color": "#488f2e", "img": "assets/lixeira-vidro.webp" }
+  ],
+  "items": [
+    { "name": "JORNAL", "type": "papel", "img": "assets/jornal.webp" },
+    { "name": "CAIXA DE PAPELÃO", "type": "papel", "img": "assets/papelao.webp" },
+    { "name": "REVISTA", "type": "papel", "img": "assets/revista.webp" },
+    { "name": "ENVELOPE", "type": "papel", "img": "assets/envelope.webp" },
+    { "name": "CADERNO", "type": "papel", "img": "assets/caderno.webp" },
+    { "name": "FOLHA PAPEL", "type": "papel", "img": "assets/folha-papel.webp" },
+
+    { "name": "GARRAFA PET", "type": "plastico", "img": "assets/garrafa_pet.webp" },
+    { "name": "SACO PLÁSTICO", "type": "plastico", "img": "assets/sacola.webp" },
+    { "name": "POTE DE IOGURTE", "type": "plastico", "img": "assets/iogurte.webp" },
+    { "name": "TAMPA PLÁSTICA", "type": "plastico", "img": "assets/tampa_plastica.webp" },
+    { "name": "CANUDO PLÁSTICO", "type": "plastico", "img": "assets/canudo.webp" },
+    { "name": "EMBALAGEM DE SHAMPOO", "type": "plastico", "img": "assets/shampoo.webp" },
+
+    { "name": "LATA DE REFRI", "type": "metal", "img": "assets/lata.webp" },
+    { "name": "PAPEL ALUMÍNIO", "type": "metal", "img": "assets/aluminio.webp" },
+    { "name": "CLIPES", "type": "metal", "img": "assets/clipes.webp" },
+    { "name": "LATA DE SARDINHA", "type": "metal", "img": "assets/sardinha.webp" },
+    { "name": "ARAME", "type": "metal", "img": "assets/arame.webp" },
+    { "name": "PARAFUSO", "type": "metal", "img": "assets/parafusos.webp" },
+
+    { "name": "POTE DE VIDRO", "type": "vidro", "img": "assets/pote_vidro.webp" },
+    { "name": "GARRAFA DE VIDRO", "type": "vidro", "img": "assets/garrafa_vidro.webp" },
+    { "name": "COPO DE VIDRO", "type": "vidro", "img": "assets/copo_vidro.webp" },
+    { "name": "POTE DE GELEIA", "type": "vidro", "img": "assets/pote_geleia.webp" },
+    { "name": "GARRAFA DE SUCO", "type": "vidro", "img": "assets/garrafa-suco.webp" },
+    { "name": "TAÇA DE VIDRO", "type": "vidro", "img": "assets/taca_vidro.webp" },
+
+    { "name": "CASCA DE BANANA", "type": "organico", "img": "assets/banana.webp" },
+    { "name": "BORRA DE CAFÉ", "type": "organico", "img": "assets/cafe.webp" },
+    { "name": "RESTO DE COMIDA", "type": "organico", "img": "assets/resto_comida.webp" },
+    { "name": "CASCA DE OVO", "type": "organico", "img": "assets/ovo.webp" },
+    { "name": "SACHÊ DE CHÁ", "type": "organico", "img": "assets/sache_cha.webp" },
+    { "name": "GUARDANAPO SUJO", "type": "organico", "img": "assets/guardanapo-sujo.webp" }
+  ]
+}

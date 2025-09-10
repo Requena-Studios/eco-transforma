@@ -480,7 +480,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ECOJOGOS – SELETOR */
-.games-wrap {
+.games-wrap, .shout {
     display: grid;
     gap: .75rem;
 }
@@ -688,6 +688,7 @@ h1, h2, h3, h4, h5, h6 {
 .filter-chip {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     gap: .25rem;
     background: #fff;
@@ -695,7 +696,10 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 12px;
     padding: .4rem .6rem;
     cursor: pointer;
-    min-width: 64px;
+    min-width: 80px;
+    max-width: 80px;
+    min-height: 70px;
+    max-height: 70px;
     box-shadow: 0 1px 4px rgba(0,0,0,.06);
     transition: transform .05s ease, border-color .15s ease, box-shadow .15s ease;
 }
@@ -710,7 +714,10 @@ h1, h2, h3, h4, h5, h6 {
         box-shadow: 0 0 0 2px color-mix(in hsl, var(--active-menu-color,#0a8a3d) 30%, transparent 70%);
     }
 
-    .filter-chip img {
+    .filter-chip img, .filter-chip i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 36px;
         height: 36px;
         object-fit: contain;
@@ -751,11 +758,11 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--card-white-background-color,#ffffffcc);
     border: 1px solid #dfe9e3;
     border-radius: 14px;
-    padding: .6rem .6rem .75rem;
+    padding: .4rem .4rem .4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: .4rem;
+    gap: .3rem;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0,0,0,.05);
 }

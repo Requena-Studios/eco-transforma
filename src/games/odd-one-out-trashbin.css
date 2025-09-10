@@ -36,6 +36,7 @@
 .ootb-item-wrap {
     display: grid;
     place-items: center;
+    gap: .4rem;
 }
 
 .ootb-item {

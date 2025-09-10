@@ -1,39 +1,39 @@
 {
   "bins": [
     {
-      "id": "AZUL",
+      "id": "PAPEL",
       "nome": "PAPÉIS",
       "cor": "#1976d2",
       "emoji": "📘",
-      "img": "drag-trash/lixeira-papel.webp"
+      "img": "assets/lixeira-papel.webp"
     },
     {
-      "id": "VERMELHA",
+      "id": "PLÁSTICO",
       "nome": "PLÁSTICOS",
       "cor": "#d32f2f",
       "emoji": "🧴",
-      "img": "drag-trash/lixeira-plastico.webp"
+      "img": "assets/lixeira-plastico.webp"
     },
     {
-      "id": "VERDE",
+      "id": "VIDRO",
       "nome": "VIDROS",
       "cor": "#2e7d32",
       "emoji": "🍾",
-      "img": "drag-trash/lixeira-vidro.webp"
+      "img": "assets/lixeira-vidro.webp"
     },
     {
-      "id": "AMARELA",
+      "id": "METAL",
       "nome": "METAIS",
       "cor": "#f9a825",
       "emoji": "🥫",
-      "img": "drag-trash/lixeira-metal.webp"
+      "img": "assets/lixeira-metal.webp"
     },
     {
-      "id": "MARROM",
+      "id": "ORGÂNICO",
       "nome": "ORGÂNICOS",
       "cor": "#6d4c41",
       "emoji": "🍎",
-      "img": "drag-trash/lixeira-papel.webp"
+      "img": "assets/lixeira-organico.webp"
     }
   ],
   "items": [
@@ -41,56 +41,56 @@
       "id": "GARRAFA_PET",
       "nome": "GARRAFA PET",
       "material": "PLÁSTICO (PET)",
-      "lixeira": "VERMELHA",
+      "lixeira": "PLÁSTICO",
       "tempo_decomposicao": "DE 200 A 600 ANOS",
       "exemplos": [ "GARRAFA DE REFRIGERANTE", "FRASCO DE ÁGUA" ],
       "observacoes": "REMOVA TAMPAS, ENXÁGUE E AMASSE PARA OCUPAR MENOS ESPAÇO.",
       "icone": "fa-sharp-duotone fa-bottle-water",
-      "img": "drag-trash/garrafa_pet.webp"
+      "img": "assets/garrafa_pet.webp"
     },
     {
       "id": "LATA_REFRI",
       "nome": "LATA DE REFRIGERANTE",
       "material": "METAL (ALUMÍNIO)",
-      "lixeira": "AMARELA",
+      "lixeira": "METAL",
       "tempo_decomposicao": "DE 80 A 200 ANOS",
       "exemplos": [ "LATA DE REFRIGERANTE", "LATA DE CERVEJA" ],
       "observacoes": "ENXÁGUE ANTES DE DESCARTAR.",
       "icone": "fa-sharp-duotone fa-can-food",
-      "img": "drag-trash/garrafa_pet.webp"
+      "img": "assets/lata.webp"
     },
     {
       "id": "PAPEL_SULFITE",
       "nome": "PAPEL SULFITE/OFÍCIO",
       "material": "PAPEL",
-      "lixeira": "AZUL",
+      "lixeira": "PAPEL",
       "tempo_decomposicao": "DE 3 A 6 MESES",
       "exemplos": [ "FOLHAS DE CADERNO", "IMPRESSÕES" ],
       "observacoes": "NÃO MISTURE COM PAPEL SUJO DE ÓLEO/COMIDA.",
       "icone": "fa-sharp-duotone fa-file-lines",
-      "img": "drag-trash/garrafa_pet.webp"
+      "img": "assets/folha-papel.webp"
     },
     {
       "id": "JORNAL",
       "nome": "JORNAL/REVISTA",
       "material": "PAPEL",
-      "lixeira": "AZUL",
+      "lixeira": "PAPEL",
       "tempo_decomposicao": "DE 3 A 6 MESES",
       "exemplos": [ "JORNAL", "REVISTA", "FOLHETO" ],
       "observacoes": "MANTENHA SECO.",
       "icone": "fa-sharp-duotone fa-newspaper",
-      "img": "drag-trash/garrafa_pet.webp"
+      "img": "assets/jornal.webp"
     },
     {
       "id": "VIDRO_GARRAFA",
       "nome": "GARRAFA DE VIDRO",
       "material": "VIDRO",
-      "lixeira": "VERDE",
+      "lixeira": "VIDRO",
       "tempo_decomposicao": "TEMPO INDETERMINADO (SÉCULOS)",
       "exemplos": [ "GARRAFA DE SUCO", "POTE DE CONSERVA" ],
       "observacoes": "DESCARTE INTEIRO QUANDO POSSÍVEL; EVITE VIDRO QUEBRADO.",
       "icone": "fa-sharp-duotone fa-wine-bottle",
-      "img": "drag-trash/garrafa_pet.webp"
+      "img": "assets/garrafa_vidro.webp"
     },
     {
       "id": "PILHAS_BATERIAS",
@@ -101,51 +101,51 @@
       "exemplos": [ "PILHA AA/AAA", "BATERIA DE CELULAR" ],
       "observacoes": "NÃO DESCARTAR NO LIXO COMUM. LEVAR AO ECOPONTO.",
       "icone": "fa-sharp-duotone fa-battery-exclamation",
-      "img": "drag-trash/garrafa_pet.webp"
+      "img": "assets/pilhas.webp"
     },
     {
       "id": "ORGANICO_RESTOS",
       "nome": "RESTOS DE COMIDA",
       "material": "ORGÂNICO",
-      "lixeira": "MARROM",
+      "lixeira": "ORGÂNICO",
       "tempo_decomposicao": "DE DIAS A SEMANAS",
       "exemplos": [ "CASCA DE FRUTA", "BORRA DE CAFÉ" ],
       "observacoes": "PODEM IR PARA COMPOSTEIRA DOMÉSTICA.",
       "icone": "fa-sharp-duotone fa-apple-core",
-      "img": "drag-trash/garrafa_pet.webp"
+      "img": "assets/resto_comida.webp"
     },
     {
       "id": "PLASTICO_FILME",
       "nome": "PLÁSTICO FILME / SACOLA",
       "material": "PLÁSTICO",
-      "lixeira": "VERMELHA",
+      "lixeira": "PLÁSTICO",
       "tempo_decomposicao": "DE 100 A 400 ANOS",
       "exemplos": [ "SACO DE MERCADO", "PLÁSTICO EMBALAGEM" ],
       "observacoes": "SECO E LIMPO. EVITE CONTAMINADOS COM ÓLEO/COMIDA.",
       "icone": "fa-sharp-duotone fa-bag-shopping",
-      "img": "drag-trash/garrafa_pet.webp"
+      "img": "assets/sacola.webp"
     },
     {
       "id": "PAPELA0",
       "nome": "CAIXA DE PAPELÃO",
       "material": "PAPELÃO",
-      "lixeira": "AZUL",
+      "lixeira": "PAPEL",
       "tempo_decomposicao": "DE 3 A 6 MESES",
       "exemplos": [ "CAIXAS", "EMBALAGENS" ],
       "observacoes": "DESMONTE/ACHATE AS CAIXAS.",
       "icone": "fa-sharp-duotone fa-box-open",
-      "img": "drag-trash/garrafa_pet.webp"
+      "img": "assets/papelao.webp"
     },
     {
       "id": "ELETRONICOS",
-      "nome": "ELETROELETRÔNICOS",
+      "nome": "ELETRÔNICOS",
       "material": "LIXO ELETRÔNICO",
       "lixeira": "ECOPONTO",
       "tempo_decomposicao": "VARIÁVEL (ANOS A SÉCULOS)",
       "exemplos": [ "CELULAR ANTIGO", "CARREGADOR", "TECLADO" ],
       "observacoes": "DESCARTE APENAS EM ECOPONTO.",
       "icone": "fa-sharp-duotone fa-plug",
-      "img": "drag-trash/garrafa_pet.webp"
+      "img": "assets/eletronicos.webp"
     }
   ]
 }

@@ -24,6 +24,7 @@ import { Home, initHome } from './pages/home'
 import { EcoScan, initEcoScan } from './pages/ecoscan'
 import { EcoGames, initEcoGames } from './pages/ecogames'
 import { EcoPontos, initEcoPontos } from './pages/ecopontos'
+import { DebugAssets, initDebugAssets } from './pages/debug-assets'
 
 type Route = { view: () => string, init?: () => void }
 
@@ -32,6 +33,7 @@ const routes: Record<string, Route> = {
     '/ecoscan': { view: EcoScan, init: initEcoScan },
     '/ecogames': { view: EcoGames, init: initEcoGames },
     '/ecopontos': { view: EcoPontos, init: initEcoPontos },
+    '/debug-assets': { view: DebugAssets, init: initDebugAssets },
 }
 
 function router() {

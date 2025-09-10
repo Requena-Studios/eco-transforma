@@ -1,20 +1,7 @@
 import type { Game } from './types'
 import './memory-match.css'
 
-import aluminioImg from '/img/drag-trash/aluminio.webp'
-import clipesImg from '/img/drag-trash/clipes.webp'
-import copoVidroImg from '/img/drag-trash/copo_vidro.webp'
-import garrafaPetImg from '/img/drag-trash/garrafa_pet.webp'
-import garrafaVidroImg from '/img/drag-trash/garrafa_vidro.webp'
-import iogurteImg from '/img/drag-trash/iogurte.webp'
-import jornalImg from '/img/drag-trash/jornal.webp'
-import lataImg from '/img/drag-trash/lata.webp'
-import papelaoImg from '/img/drag-trash/papelao.webp'
-import poteVidroImg from '/img/drag-trash/pote_vidro.webp'
-import revistaImg from '/img/drag-trash/revista.webp'
-import sacolaImg from '/img/drag-trash/sacola.webp'
-
-type BinType = 'papel' | 'plastico' | 'metal' | 'vidro'
+type BinType = 'papel' | 'plastico' | 'metal' | 'vidro' | 'organico'
 
 type Item = {
   name: string
@@ -22,26 +9,25 @@ type Item = {
   img?: string
 }
 
-const ALL_ITEMS: Item[] = [
-  { name: 'JORNAL', type: 'papel', img: jornalImg },
-  { name: 'CAIXA DE PAPELÃO', type: 'papel', img: papelaoImg },
-  { name: 'REVISTA', type: 'papel', img: revistaImg },
-  { name: 'GARRAFA PET', type: 'plastico', img: garrafaPetImg },
-  { name: 'SACO PLÁSTICO', type: 'plastico', img: sacolaImg },
-  { name: 'POTE DE IOGURTE', type: 'plastico', img: iogurteImg },
-  { name: 'LATA DE REFRI', type: 'metal', img: lataImg },
-  { name: 'PAPEL ALUMÍNIO', type: 'metal', img: aluminioImg },
-  { name: 'CLIPES', type: 'metal', img: clipesImg },
-  { name: 'POTE DE VIDRO', type: 'vidro', img: poteVidroImg },
-  { name: 'GARRAFA DE VIDRO', type: 'vidro', img: garrafaVidroImg },
-  { name: 'COPO DE VIDRO', type: 'vidro', img: copoVidroImg },
-]
+type BinInfo = {
+  id: BinType
+  title: string
+  color: string
+  img?: string
+}
 
-const TYPE_COLOR: Record<BinType, string> = {
-  papel: '#3087b2',
-  plastico: '#cd3623',
-  metal: '#e8ae29',
-  vidro: '#488f2e',
+type DragTrashDB = { bins: BinInfo[]; items: Item[] }
+
+const DATA_URL = `${import.meta.env.BASE_URL}data/assets.json`
+const IMG = (p?: string) => (p ? `${import.meta.env.BASE_URL}img/${p}` : '')
+
+async function loadDB(): Promise<DragTrashDB> {
+  const res = await fetch(DATA_URL, { cache: 'no-cache' })
+  const db = (await res.json()) as DragTrashDB
+  // Normalize image URLs to full path
+  db.items = db.items.map(i => ({ ...i, img: IMG(i.img) }))
+  db.bins = db.bins.map(b => ({ ...b, img: b.img ? IMG(b.img) : undefined }))
+  return db
 }
 
 function shuffle<T>(arr: T[]): T[] {
@@ -52,7 +38,6 @@ function shuffle<T>(arr: T[]): T[] {
   }
   return a
 }
-
 function sample<T>(arr: T[], n: number): T[] {
   return shuffle(arr).slice(0, n)
 }
@@ -73,8 +58,7 @@ export const MemoryMatchGame: Game = {
     root.innerHTML = `
       <div class="mm-wrap shout">
         <header class="mm-hd">
-          <i class="fa-sharp-duotone fa-cards"
-            ></i>
+          <i class="fa-sharp-duotone fa-cards"></i>
           <h3>MEMÓRIA: ITENS E LIXEIRAS</h3>
           <div class="mm-progress">
             <span id="mm-found">0</span>/<span id="mm-total">${PAIRS}</span>
@@ -85,8 +69,7 @@ export const MemoryMatchGame: Game = {
 
         <footer class="mm-ft">
           <button id="mm-exit" class="btn btn-ghost btn-game-exit" aria-label="Sair do jogo">
-            <i class="fa-sharp-duotone fa-circle-left"
-              ></i>
+            <i class="fa-sharp-duotone fa-circle-left"></i>
             VOLTAR AOS JOGOS
           </button>
         </footer>
@@ -97,6 +80,13 @@ export const MemoryMatchGame: Game = {
     const foundEl = root.querySelector('#mm-found') as HTMLSpanElement
     const exitBtn = root.querySelector('#mm-exit') as HTMLButtonElement
     exitBtn.addEventListener('click', () => document.dispatchEvent(new CustomEvent('game:exit')))
+
+    const db = await loadDB()
+    const ALL_ITEMS = db.items
+    const TYPE_COLOR = db.bins.reduce<Record<BinType, string>>((acc, b) => {
+      acc[b.id] = b.color
+      return acc
+    }, {} as Record<BinType, string>)
 
     let CARDS: Card[] = []
     let firstIdx: number | null = null
@@ -112,22 +102,42 @@ export const MemoryMatchGame: Game = {
         plastico: ALL_ITEMS.filter(i => i.type === 'plastico'),
         metal: ALL_ITEMS.filter(i => i.type === 'metal'),
         vidro: ALL_ITEMS.filter(i => i.type === 'vidro'),
+        organico: ALL_ITEMS.filter(i => i.type === 'organico'),
       }
-      const types: BinType[] = ['papel', 'plastico', 'metal', 'vidro']
+      const types: BinType[] = ['papel', 'plastico', 'metal', 'vidro', 'organico']
 
-      // Build sequence of pair types balanced across bins (e.g., for 8 pairs -> each type appears twice)
+      // Ensure all categories appear, distributed as evenly as possible
       const seq: BinType[] = []
-      while (seq.length < PAIRS) {
-        seq.push(...shuffle(types))
-      }
+      while (seq.length < PAIRS) seq.push(...shuffle(types))
       const pairTypes = seq.slice(0, PAIRS)
+
+      // Avoid reusing the same item across different pairs where possible
+      const used = new Set<string>() // item.name
 
       const cards: Card[] = []
       let uid = 0
       for (const t of pairTypes) {
-        // Pick two items for this pair; allow reuse if pool is small
         const pool = byType[t]
-        const picks = pool.length >= 2 ? sample(pool, 2) : [pool[0], pool[0]]
+        // Defensive fallback if a type has no items
+        if (pool.length === 0) continue
+
+        let picks: Item[] = []
+        const unused = pool.filter(p => !used.has(p.name))
+
+        if (unused.length >= 2) {
+          picks = sample(unused, 2)
+        } else if (unused.length === 1) {
+          const altPool = pool.filter(p => p.name !== unused[0].name)
+          const second = sample(altPool.length ? altPool : [unused[0]], 1)[0]
+          picks = [unused[0], second]
+        } else {
+          // No unused left: reuse items as last resort
+          const s = sample(pool, Math.min(2, pool.length))
+          picks = s.length === 2 ? s : [s[0], s[0]]
+        }
+
+        picks.forEach(p => used.add(p.name))
+
         for (const p of picks) {
           cards.push({
             id: `c${uid++}`,
@@ -148,7 +158,8 @@ export const MemoryMatchGame: Game = {
           <p class="mm-instr">Encontre pares de itens que vão para a mesma lixeira.</p>
         </div>
         <div class="mm-grid">
-          ${CARDS.map((c, i) => `
+          ${CARDS.map(
+            (c, i) => `
             <button
               class="mm-card ${c.faceUp || c.matched ? 'is-flipped' : ''} ${c.matched ? 'is-matched' : ''}"
               data-idx="${i}"
@@ -157,8 +168,7 @@ export const MemoryMatchGame: Game = {
               aria-label="${c.matched ? c.name + ' (correspondência encontrada)' : c.name}">
               <div class="mm-card-inner">
                 <div class="mm-card-face mm-card-front">
-                  <i class="fa-sharp-duotone fa-recycle"
-                    ></i>
+                  <i class="fa-sharp-duotone fa-recycle"></i>
                 </div>
                 <div class="mm-card-face mm-card-back">
                   <div class="mm-card-imgframe">
@@ -170,7 +180,8 @@ export const MemoryMatchGame: Game = {
                 </div>
               </div>
             </button>
-          `).join('')}
+          `,
+          ).join('')}
         </div>
       `
 
@@ -223,7 +234,7 @@ export const MemoryMatchGame: Game = {
       const elapsedMs = Date.now() - startTime
       const secs = Math.max(1, Math.round(elapsedMs / 1000))
       const efficiency = Math.max(0, Math.round((PAIRS / moves) * 100))
-      const msg = efficiency >= 80 ? 'PARABÉNS! 🌟' : (efficiency >= 50 ? 'BOA! 👍' : 'VAMOS TENTAR DE NOVO? 💪')
+      const msg = efficiency >= 80 ? 'PARABÉNS! 🌟' : efficiency >= 50 ? 'BOA! 👍' : 'VAMOS TENTAR DE NOVO? 💪'
 
       stage.innerHTML = `
         <div class="mm-end">
@@ -234,15 +245,13 @@ export const MemoryMatchGame: Game = {
           <p>TEMPO: <strong>${secs}s</strong> • JOGADAS: <strong>${moves}</strong></p>
           <div class="mm-end-actions">
             <button id="mm-retry" class="btn">
-              <i class="fa-sharp-duotone fa-rotate-right"
-                 style="margin-right:.35rem;"></i>
+              <i class="fa-sharp-duotone fa-rotate-right" style="margin-right:.35rem;"></i>
               JOGAR NOVAMENTE
             </button>
           </div>
         </div>
       `
-      ;(stage.querySelector('#mm-retry') as HTMLButtonElement)
-        .addEventListener('click', start)
+      ;(stage.querySelector('#mm-retry') as HTMLButtonElement).addEventListener('click', start)
     }
 
     function start() {

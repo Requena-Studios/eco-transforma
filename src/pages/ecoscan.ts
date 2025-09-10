@@ -1,4 +1,4 @@
-type BinId = 'AZUL' | 'VERMELHA' | 'VERDE' | 'AMARELA' | 'MARROM' | 'CINZA' | 'ECOPONTO'
+type BinId = 'PAPEL' | 'PLÁSTICO' | 'VIDRO' | 'METAL' | 'ORGÂNICO' | 'ECOPONTO'
 type EcoBin = { id: BinId | 'ECOPONTO'; nome: string; cor: string; emoji: string; img?: string }
 type EcoItem = {
     id: string; nome: string; material: string; lixeira: BinId | 'ECOPONTO';
@@ -15,23 +15,58 @@ async function loadDB(): Promise<EcoScanDB> {
     return await res.json()
 }
 
+// injects minimal CSS needed for scroll and modal close button layering/position
+function ensureStyles() {
+    const id = 'ecoscan-styles'
+    if (document.getElementById(id)) return
+    const style = document.createElement('style')
+    style.id = id
+    style.textContent = `
+/* eco-grid vertical scroll */
+.eco-grid {
+  overflow-y: auto;
+  max-height: calc(100vh - 370px);
+  padding-right: 2px; /* room for scrollbar */
+}
+
+/* modal layering and close button position */
+.eco-modal { position: fixed; inset: 0; z-index: 1000; }
+.eco-modal__panel { position: relative; max-width: 85vw; }
+.eco-modal__close { position: absolute; top: .5rem; right: .5rem; z-index: 2; }
+.eco-modal__body { margin-top: 1.5rem; }
+`
+    document.head.appendChild(style)
+}
+
 /* modal mínimo */
 function showModal(html: string) {
+    ensureStyles()
     const overlay = document.createElement('div')
     overlay.className = 'eco-modal'
     overlay.innerHTML = `
     <div class="eco-modal__backdrop" data-close></div>
     <div class="eco-modal__panel" role="dialog" aria-modal="true">
-      <button class="eco-modal__close btn btn-ghost" data-close aria-label="Fechar">
+      <button class="eco-modal__close btn btn-ghost" type="button" data-close aria-label="Fechar">
         <i class="fa-sharp-duotone fa-circle-xmark"></i>
       </button>
       <div class="eco-modal__body">${html}</div>
     </div>
   `
+    const close = () => {
+        if (overlay.parentElement) document.body.removeChild(overlay)
+        document.removeEventListener('keydown', onKeyDown, true)
+    }
+    const onKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') close()
+    }
+
     overlay.addEventListener('click', e => {
         const el = e.target as HTMLElement
-        if (el.dataset.close !== undefined) document.body.removeChild(overlay)
-    })
+        // close if backdrop OR any element inside a [data-close] (e.g., the <i> inside the button)
+        if (el.closest('[data-close]')) close()
+    }, true)
+
+    document.addEventListener('keydown', onKeyDown, true)
     document.body.appendChild(overlay)
 }
 
@@ -48,12 +83,14 @@ export function EcoScan() {
 }
 
 export async function initEcoScan() {
+    ensureStyles()
+
     const host = document.getElementById('ecoscan-root') as HTMLDivElement | null
     if (!host) return
     const root = host as HTMLDivElement; // 👈 fixa o narrowing para closures
 
     const db = await loadDB()
-    const bins = db.bins.filter(b => ['AZUL', 'VERMELHA', 'VERDE', 'AMARELA', 'MARROM', 'CINZA'].includes(b.id))
+    const bins = db.bins.filter(b => ['PAPEL', 'PLÁSTICO', 'VIDRO', 'METAL', 'ORGÂNICO'].includes(b.id))
 
     root.innerHTML = `
     <div class="ecoscan-filters card">
