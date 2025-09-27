@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) navigator.serviceWorker.register('/eco-transforma/dev-sw.js?dev-sw', { scope: '/eco-transforma/', type: 'classic' })

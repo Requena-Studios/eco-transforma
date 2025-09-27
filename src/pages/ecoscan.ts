@@ -143,7 +143,7 @@ export async function initEcoScan() {
         </header>
         <ul class="eco-facts">
           <li><strong>LIXEIRA:</strong> ${it.lixeira}</li>
-          <li><strong>TEMPO:</strong> ${it.tempo_decomposicao}</li>
+          <li><strong>TEMPO DE DECOMPOSIÇÃO:</strong> ${it.tempo_decomposicao}</li>
           ${it.exemplos?.length ? `<li><strong>EXEMPLOS:</strong> ${it.exemplos.join(', ')}</li>` : ''}
           ${it.observacoes ? `<li><strong>DICA:</strong> ${it.observacoes}</li>` : ''}
         </ul>

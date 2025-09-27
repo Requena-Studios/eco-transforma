@@ -57,10 +57,12 @@ html, body {
     font-family: arial;
     margin: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
+    min-height: calc(100% + env(safe-area-inset-top));
     background-color: #cbffdf;
     overflow: hidden;
     margin: 0 auto;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
     html * {
@@ -854,4 +856,19 @@ h1, h2, h3, h4, h5, h6 {
 .eco-facts {
     margin: .6rem 0 0;
     padding-left: 1rem;
+}
+
+/* Title + version stack */
+.app-title {
+    position: relative;
+}
+
+.app-version {
+    position: absolute;
+    left: 65%;
+    font-size: .6rem;
+    font-weight: 600;
+    color: #2e7d32; /* harmonizes with theme */
+    opacity: .8;
+    margin-top: .1rem;
 }

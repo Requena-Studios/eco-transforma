@@ -30,18 +30,15 @@ export default defineConfig({
                 description: 'App educativo sobre reciclagem e sustentabilidade',
                 lang: 'pt-BR',
                 dir: 'ltr',
-
-                "id": "/eco-transforma/index.html",
+                id: '/eco-transforma/index.html',
                 start_url: '/eco-transforma/index.html?source=pwa',
                 scope: '/eco-transforma/',
                 display: 'fullscreen',
                 display_override: ['fullscreen', 'window-controls-overlay'],
-
                 theme_color: '#0a7a3d',
                 background_color: '#ffffff',
                 orientation: 'portrait',
                 categories: ['education', 'kids', 'games', 'utilities'],
-
                 icons: [
                     { src: 'icons/16.png', sizes: '16x16', type: 'image/png', purpose: 'any' },
                     { src: 'icons/32.png', sizes: '32x32', type: 'image/png', purpose: 'any' },
@@ -50,50 +47,28 @@ export default defineConfig({
                     { src: 'icons/192.png', sizes: '192x192', type: 'image/png', purpose: 'maskable' },
                     { src: 'icons/512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
                 ],
-
                 screenshots: [
-                    {
-                        src: 'screenshots/tall.png',
-                        sizes: '720x1280',
-                        type: 'image/png',
-                        label: 'Tela inicial (mobile)'
-                    },
-                    {
-                        src: 'screenshots/wide.png',
-                        sizes: '1600x900',
-                        type: 'image/png',
-                        form_factor: 'wide',
-                        label: 'Tela inicial (desktop)'
-                    }
+                    { src: 'screenshots/tall.png', sizes: '720x1280', type: 'image/png', label: 'Tela inicial (mobile)' },
+                    { src: 'screenshots/wide.png', sizes: '1600x900', type: 'image/png', form_factor: 'wide', label: 'Tela inicial (desktop)' }
                 ],
-
                 shortcuts: [
-                    {
-                        name: 'EcoScan',
-                        short_name: 'EcoScan',
-                        url: '/eco-transforma/#/ecoscan',
-                        icons: [{ src: 'icons/192.png', sizes: '192x192', type: 'image/png' }]
-                    },
-                    {
-                        name: 'EcoJogos',
-                        short_name: 'EcoJogos',
-                        url: '/eco-transforma/#/ecogames',
-                        icons: [{ src: 'icons/192.png', sizes: '192x192', type: 'image/png' }]
-                    },
-                    {
-                        name: 'EcoPontos',
-                        short_name: 'EcoPontos',
-                        url: '/eco-transforma/#/ecopontos',
-                        icons: [{ src: 'icons/192.png', sizes: '192x192', type: 'image/png' }]
-                    }
+                    { name: 'EcoScan', short_name: 'EcoScan', url: '/eco-transforma/#/ecoscan', icons: [{ src: 'icons/192.png', sizes: '192x192', type: 'image/png' }] },
+                    { name: 'EcoJogos', short_name: 'EcoJogos', url: '/eco-transforma/#/ecogames', icons: [{ src: 'icons/192.png', sizes: '192x192', type: 'image/png' }] },
+                    { name: 'EcoPontos', short_name: 'EcoPontos', url: '/eco-transforma/#/ecopontos', icons: [{ src: 'icons/192.png', sizes: '192x192', type: 'image/png' }] }
                 ]
             },
             workbox: process.env.NODE_ENV === 'production' ? {
+                clientsClaim: true,
+                skipWaiting: true,
+                cleanupOutdatedCaches: true,
                 globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,json,woff2}'],
                 navigateFallback: '/eco-transforma/index.html',
                 runtimeCaching: [
                     {
-                        urlPattern: /\/eco-transforma\//,
+                        // Avoid caching documents (HTML) to reduce stale shells
+                        urlPattern: ({ url, request }) =>
+                            url.pathname.startsWith('/eco-transforma/') &&
+                            request.destination !== 'document',
                         handler: 'StaleWhileRevalidate',
                         options: {
                             cacheName: 'eco-data',
@@ -102,9 +77,7 @@ export default defineConfig({
                         }
                     },
                     {
-                        urlPattern: ({ url }) => [
-                            'kit.fontawesome.com',
-                        ].includes(url.hostname),
+                        urlPattern: ({ url }) => ['kit.fontawesome.com'].includes(url.hostname),
                         handler: 'CacheFirst',
                         options: {
                             cacheName: 'fa-cdn',

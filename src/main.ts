@@ -1,22 +1,21 @@
 import { registerSW } from 'virtual:pwa-register'
 
+const UPDATE_FLAG = 'eco:updatePending'
+
+// Auto-register SW, redirect to Updating page and apply the update
 const updateSW = registerSW({
   immediate: true,
   onNeedRefresh() {
-    const banner = document.createElement('div')
-    banner.className = 'update-banner'
-    banner.innerHTML = `
-      <span>🔄 Nova versão disponível</span>
-      <button>Atualizar</button>
-    `
-    document.body.appendChild(banner)
-    banner.querySelector('button')!.addEventListener('click', () => {
-      updateSW(true)
-    })
+    try { sessionStorage.setItem(UPDATE_FLAG, '1') } catch {}
+    if (location.hash !== '#/updating') location.hash = '#/updating'
+    // Give the router a tick to render the page before reloading
+    setTimeout(() => updateSW(true), 150)
   },
-  onOfflineReady() {
-    console.log('✅ App pronto para uso offline')
-  }
+  onRegisteredSW(_swUrl, r) {
+    // Optional: periodic update checks
+    if (r) setInterval(() => r.update(), 10 * 60 * 1000)
+  },
+  onOfflineReady() { /* noop */ }
 })
 
 import './style.css'
@@ -25,30 +24,37 @@ import { EcoScan, initEcoScan } from './pages/ecoscan'
 import { EcoGames, initEcoGames } from './pages/ecogames'
 import { EcoPontos, initEcoPontos } from './pages/ecopontos'
 import { DebugAssets, initDebugAssets } from './pages/debug-assets'
+import { Updating, initUpdating } from './pages/updating'
 
 type Route = { view: () => string, init?: () => void }
 
 const routes: Record<string, Route> = {
-    '/': { view: Home, init: initHome },
-    '/ecoscan': { view: EcoScan, init: initEcoScan },
-    '/ecogames': { view: EcoGames, init: initEcoGames },
-    '/ecopontos': { view: EcoPontos, init: initEcoPontos },
-    '/debug-assets': { view: DebugAssets, init: initDebugAssets },
+  '/': { view: Home, init: initHome },
+  '/ecoscan': { view: EcoScan, init: initEcoScan },
+  '/ecogames': { view: EcoGames, init: initEcoGames },
+  '/ecopontos': { view: EcoPontos, init: initEcoPontos },
+  '/debug-assets': { view: DebugAssets, init: initDebugAssets },
+  '/updating': { view: Updating, init: initUpdating },
 }
 
 function router() {
-    const hash = location.hash.replace('#', '') || '/'
-    const route = routes[hash] ?? { view: () => '<h2>404</h2><p>Página não encontrada</p>' }
-    const app = document.getElementById('app')
-    if (app) {
-        app.innerHTML = route.view()
-        route.init?.()
-    }
+  const hash = location.hash.replace('#', '') || '/'
+  const route = routes[hash] ?? { view: () => '<h2>404</h2><p>Página não encontrada</p>' }
+  const app = document.getElementById('app')
+  if (app) {
+    app.innerHTML = route.view()
+    route.init?.()
+  }
 
-    document.querySelectorAll('nav a').forEach(a => {
-        const href = (a as HTMLAnchorElement).getAttribute('href') || '#/'
-        a.classList.toggle('active', href === `#${hash}`)
-    })
+  document.querySelectorAll('nav a').forEach(a => {
+    const href = (a as HTMLAnchorElement).getAttribute('href') || '#/'
+    a.classList.toggle('active', href === `#${hash}`)
+  })
+}
+
+// If flag is set (pre-reload), land on Updating page to show completion state.
+if (sessionStorage.getItem(UPDATE_FLAG) === '1') {
+  if (location.hash !== '#/updating') location.hash = '#/updating'
 }
 
 window.addEventListener('hashchange', router)

@@ -2,9 +2,16 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="EcoTransforma: escaneie resíduos (EcoScan), aprenda jogando (EcoJogos) e encontre pontos de reciclagem perto de você. Recicle e transforme sua rotina.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <meta name="theme-color" content="#0a7a3d" />
+
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="description" content="EcoTransforma: escaneie resíduos (EcoScan), aprenda jogando (EcoJogos) e encontre pontos de reciclagem perto de você. Recicle e transforme sua rotina.">
 
     <link rel="icon" type="image/x-icon" href="/icons/favicon.ico" />
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/16.png" />
@@ -19,7 +26,10 @@
     <header class="app-header">
         <div class="app-header-container">
             <img src="img/logo.webp" alt="EcoTransforma" class="logo">
-            <h1>EcoTransforma</h1>
+            <div class="app-title">
+                <h1>EcoTransforma</h1>
+                <small id="app-version" class="app-version"></small>
+            </div>
         </div>
     </header>
 
@@ -54,6 +64,13 @@
         </div>
     </nav>
 
+    <script>
+        (function () {
+            var ver = document.documentElement.getAttribute('data-eco-versao');
+            var el = document.getElementById('app-version');
+            if (ver && el) el.textContent = ver;
+        })();
+    </script>
     <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
