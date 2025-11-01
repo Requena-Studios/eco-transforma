@@ -1,4 +1,5 @@
 import type { Game } from './types'
+import { addScore } from '../components/score-system'
 
 type Q = { q: string; options: string[] }
 type RunQ = { q: string; options: string[]; answer: number }
@@ -161,6 +162,11 @@ export const QuizGame: Game = {
     function renderEnd() {
       const pct = Math.round((score / QUESTIONS.length) * 100)
       const msg = pct >= 80 ? 'PARABÉNS! 🌟' : (pct >= 50 ? 'BOA! 👍' : 'VAMOS TENTAR DE NOVO? 💪')
+      
+      // Add score to system
+      const pointsEarned = score * 10
+      addScore('quiz', pointsEarned, true)
+      
       stage.innerHTML = `
         <div class="quiz-end">
           <i class="fa-sharp-duotone fa-trophy"
@@ -168,6 +174,7 @@ export const QuizGame: Game = {
           <h3>${msg}</h3>
           <p>SUA PONTUAÇÃO: <strong>${pct}</strong> DE 100</p>
           <p>VOCÊ ACERTOU <strong>${score}</strong> DE <strong>${QUESTIONS.length}</strong>.</p>
+          <p class="points-earned">+${pointsEarned} PONTOS 🌟</p>
           <div class="quiz-end-actions">
             <button id="quiz-retry" class="btn">
               <i class="fa-sharp-duotone fa-rotate-right"

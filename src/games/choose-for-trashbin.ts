@@ -1,4 +1,5 @@
 import type { Game } from './types'
+import { addScore } from '../components/score-system'
 import './choose-for-trashbin.css'
 
 type BinType = 'papel' | 'plastico' | 'metal' | 'vidro' | 'organico'
@@ -231,6 +232,10 @@ export const ChooseForTrashbinGame: Game = {
     function renderEnd() {
       const pct = Math.round((score / QUEUE.length) * 100)
       const msg = pct >= 80 ? 'PARABÉNS! 🌟' : (pct >= 50 ? 'BOA! 👍' : 'VAMOS TENTAR DE NOVO? 💪')
+      
+      const pointsEarned = score * 10
+      addScore('choose-for-trashbin', pointsEarned, true)
+      
       const s = document.getElementById('cftb-stage') as HTMLDivElement
       s.innerHTML = `
         <div class="cftb-end">
@@ -239,6 +244,7 @@ export const ChooseForTrashbinGame: Game = {
           <h3>${msg}</h3>
           <p>SUA PONTUAÇÃO: <strong>${pct}</strong> DE 100</p>
           <p>VOCÊ ACERTOU <strong>${score}</strong> DE <strong>${QUEUE.length}</strong>.</p>
+          <p class="points-earned">+${pointsEarned} PONTOS 🌟</p>
           <div class="cftb-end-actions">
             <button id="cftb-retry" class="btn">
               <i class="fa-sharp-duotone fa-rotate-right" style="margin-right:.35rem;"></i>

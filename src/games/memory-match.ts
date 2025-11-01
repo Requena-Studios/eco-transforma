@@ -1,4 +1,5 @@
 import type { Game } from './types'
+import { addScore } from '../components/score-system'
 import './memory-match.css'
 
 type BinType = 'papel' | 'plastico' | 'metal' | 'vidro' | 'organico'
@@ -236,6 +237,14 @@ export const MemoryMatchGame: Game = {
       const efficiency = Math.max(0, Math.round((PAIRS / moves) * 100))
       const msg = efficiency >= 80 ? 'PARABÉNS! 🌟' : efficiency >= 50 ? 'BOA! 👍' : 'VAMOS TENTAR DE NOVO? 💪'
 
+      // Calculate points: base 50 + efficiency bonus + time bonus
+      const basePoints = 50
+      const efficiencyBonus = Math.round(efficiency / 2)
+      const timeBonus = secs < 30 ? 30 : secs < 60 ? 15 : 0
+      const pointsEarned = basePoints + efficiencyBonus + timeBonus
+      
+      addScore('memory-match', pointsEarned, true)
+
       stage.innerHTML = `
         <div class="mm-end">
           <i class="fa-sharp-duotone fa-trophy"
@@ -243,6 +252,8 @@ export const MemoryMatchGame: Game = {
           <h3>${msg}</h3>
           <p>VOCÊ ENCONTROU ${PAIRS} PARES.</p>
           <p>TEMPO: <strong>${secs}s</strong> • JOGADAS: <strong>${moves}</strong></p>
+          <p>EFICIÊNCIA: <strong>${efficiency}%</strong></p>
+          <p class="points-earned">+${pointsEarned} PONTOS 🌟</p>
           <div class="mm-end-actions">
             <button id="mm-retry" class="btn">
               <i class="fa-sharp-duotone fa-rotate-right" style="margin-right:.35rem;"></i>

@@ -963,8 +963,11 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     gap: 1.5rem;
     padding: 1rem;
+    padding-bottom: 2rem;
     max-width: 800px;
     margin: 0 auto;
+    max-height: calc(100dvh - 140px);
+    overflow-y: auto;
 }
 
 .stats-card {
@@ -1224,5 +1227,14 @@ h1, h2, h3, h4, h5, h6 {
     .badge-card {
         transition: none;
     }
+}
+
+
+/* Points earned text */
+.points-earned {
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
 }
 

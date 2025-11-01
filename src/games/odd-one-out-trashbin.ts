@@ -1,4 +1,5 @@
 import type { Game } from './types'
+import { addScore } from '../components/score-system'
 import './odd-one-out-trashbin.css'
 
 type BinType = 'papel' | 'plastico' | 'organico' | 'metal' | 'vidro'
@@ -227,6 +228,10 @@ export const OddOneOutTrashbinGame: Game = {
     function renderEnd() {
       const pct = Math.round((score / QUEUE.length) * 100)
       const msg = pct >= 80 ? 'PARABÉNS! 🌟' : (pct >= 50 ? 'BOA! 👍' : 'VAMOS TENTAR DE NOVO? 💪')
+      
+      const pointsEarned = score * 10
+      addScore('odd-one-out-trashbin', pointsEarned, true)
+      
       const s = document.getElementById('ootb-stage') as HTMLDivElement
       s.innerHTML = `
         <div class="ootb-end">
@@ -235,6 +240,7 @@ export const OddOneOutTrashbinGame: Game = {
           <h3>${msg}</h3>
           <p>SUA PONTUAÇÃO: <strong>${pct}</strong> DE 100</p>
           <p>VOCÊ ACERTOU <strong>${score}</strong> DE <strong>${QUEUE.length}</strong>.</p>
+          <p class="points-earned">+${pointsEarned} PONTOS 🌟</p>
           <div class="ootb-end-actions">
             <button id="ootb-retry" class="btn">
               <i class="fa-sharp-duotone fa-rotate-right" style="margin-right:.35rem;"></i>
