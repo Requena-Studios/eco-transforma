@@ -956,3 +956,273 @@ h1, h2, h3, h4, h5, h6 {
         animation: none;
     }
 }
+
+/* Stats Page */
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.stats-card {
+    background: var(--card-white-background-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+
+.level-card {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-400) 0%, var(--primary) 100%);
+    color: white;
+}
+
+.level-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: 2rem;
+    margin-bottom: .5rem;
+}
+
+.level-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.level-card h3 {
+    margin: .5rem 0 1rem;
+    font-size: 1.8rem;
+}
+
+.level-progress {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.progress-bar {
+    height: 12px;
+    background: rgba(255,255,255,.3);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: .5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: white;
+    border-radius: 6px;
+    transition: width 0.5s ease;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+.stat-item {
+    background: var(--card-white-background-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.stat-item i {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.stat-item strong {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.stat-item span {
+    font-size: .85rem;
+    color: #666;
+}
+
+.badges-section {
+    background: var(--card-white-background-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+
+.badges-section h3 {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 1rem;
+}
+
+.badges-section h3 i {
+    color: var(--primary);
+}
+
+.locked-title {
+    margin: 1.5rem 0 1rem;
+    font-size: 1rem;
+    color: #999;
+}
+
+.badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.badge-card {
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    transition: transform 0.2s;
+}
+
+.badge-card.unlocked {
+    background: linear-gradient(135deg, var(--primary-300) 0%, var(--primary-400) 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+}
+
+.badge-card.unlocked:hover {
+    transform: translateY(-4px);
+}
+
+.badge-card.locked {
+    background: #f5f5f5;
+    color: #999;
+    opacity: 0.6;
+}
+
+.badge-card i {
+    font-size: 2rem;
+}
+
+.badge-card strong {
+    font-size: .95rem;
+}
+
+.badge-card small {
+    font-size: .8rem;
+    opacity: 0.85;
+}
+
+.no-badges {
+    text-align: center;
+    padding: 2rem;
+    color: #999;
+}
+
+.activity-section {
+    background: var(--card-white-background-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+
+.activity-section h3 {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 1rem;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.activity-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: .75rem;
+    align-items: center;
+    padding: .75rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.activity-item i {
+    color: var(--primary);
+}
+
+.activity-item .points {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.activity-item small {
+    color: #999;
+    font-size: .8rem;
+}
+
+.reset-section {
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Badge Toast Notification */
+.badge-toast {
+    position: fixed;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: linear-gradient(135deg, var(--primary-400) 0%, var(--primary) 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(46, 125, 50, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 10001;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.badge-toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.badge-toast i {
+    font-size: 2rem;
+}
+
+.badge-toast div {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.badge-toast strong {
+    font-size: .9rem;
+}
+
+.badge-toast span {
+    font-size: .85rem;
+    opacity: 0.9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .badge-toast,
+    .progress-fill,
+    .badge-card {
+        transition: none;
+    }
+}
+

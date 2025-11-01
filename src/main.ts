@@ -60,6 +60,7 @@ import { Home, initHome } from './pages/home'
 import { EcoInfo, initEcoInfo } from './pages/ecoinfo'
 import { EcoGames, initEcoGames } from './pages/ecogames'
 import { EcoPontos, initEcoPontos } from './pages/ecopontos'
+import { EcoStats, initEcoStats } from './pages/ecostats'
 import { DebugAssets, initDebugAssets } from './pages/debug-assets'
 import { Updating, initUpdating } from './pages/updating'
 
@@ -70,6 +71,7 @@ const routes: Record<string, Route> = {
   '/ecoinfo': { view: EcoInfo, init: initEcoInfo },
   '/ecogames': { view: EcoGames, init: initEcoGames },
   '/ecopontos': { view: EcoPontos, init: initEcoPontos },
+  '/ecostats': { view: EcoStats, init: initEcoStats },
   '/debug-assets': { view: DebugAssets, init: initDebugAssets },
   '/updating': { view: Updating, init: initUpdating },
 }
