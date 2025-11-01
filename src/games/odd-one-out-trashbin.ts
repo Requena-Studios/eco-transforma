@@ -1,5 +1,6 @@
 import type { Game } from './types'
 import { addScore } from '../components/score-system'
+import { vibrateSuccess, vibrateError } from '../components/haptic'
 import './odd-one-out-trashbin.css'
 
 type BinType = 'papel' | 'plastico' | 'organico' | 'metal' | 'vidro'
@@ -194,6 +195,13 @@ export const OddOneOutTrashbinGame: Game = {
       resolving = true
 
       const isCorrect = targetBin === itemType
+
+      // Haptic feedback
+      if (isCorrect) {
+        vibrateSuccess()
+      } else {
+        vibrateError()
+      }
 
       const itemEl = document.getElementById('ootb-item') as HTMLDivElement | null
       const chosenBinEl = document.querySelector<HTMLButtonElement>(`.ootb-bin[data-bin="${targetBin}"]`)

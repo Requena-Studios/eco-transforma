@@ -963,10 +963,9 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     gap: 1.5rem;
     padding: 1rem;
-    padding-bottom: 2rem;
     max-width: 800px;
     margin: 0 auto;
-    max-height: calc(100dvh - 140px);
+    max-height: calc(100dvh - 230px);
     overflow-y: auto;
 }
 
@@ -1238,5 +1237,62 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     font-size: 1.1rem;
     margin-top: 0.5rem;
+}
+
+
+/* Empty State */
+.stats-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    min-height: 50vh;
+}
+
+.stats-empty-state h3 {
+    margin: 0.5rem 0;
+    color: var(--primary);
+}
+
+.stats-empty-state p {
+    color: #666;
+    margin: 0.5rem 0;
+    max-width: 400px;
+}
+
+
+/* Page Transitions */
+.app-main {
+    transition: opacity 0.15s ease-out;
+}
+
+.app-main.page-transitioning-out {
+    opacity: 0;
+}
+
+.app-main.page-transitioning-in {
+    opacity: 0;
+    animation: fadeIn 0.15s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .app-main {
+        transition: none;
+    }
+    .app-main.page-transitioning-in {
+        animation: none;
+        opacity: 1;
+    }
 }
 

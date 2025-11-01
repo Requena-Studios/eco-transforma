@@ -1,5 +1,6 @@
 import type { Game } from './types'
 import { addScore } from '../components/score-system'
+import { vibrateSuccess, vibrateError } from '../components/haptic'
 import './memory-match.css'
 
 type BinType = 'papel' | 'plastico' | 'metal' | 'vidro' | 'organico'
@@ -214,6 +215,7 @@ export const MemoryMatchGame: Game = {
         locking = true
         setTimeout(() => {
           if (isMatch) {
+            vibrateSuccess()
             a.matched = b.matched = true
             foundPairs++
             foundEl.textContent = String(foundPairs)
@@ -222,6 +224,7 @@ export const MemoryMatchGame: Game = {
               return
             }
           } else {
+            vibrateError()
             a.faceUp = b.faceUp = false
           }
           firstIdx = secondIdx = null

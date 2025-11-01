@@ -78,7 +78,14 @@ const routes: Record<string, Route> = {
 
 let currentCleanup: (() => void) | undefined
 
-function router() {
+async function router() {
+  const app = document.getElementById('app')
+  if (!app) return
+
+  // Fade out
+  app.classList.add('page-transitioning-out')
+  await new Promise(resolve => setTimeout(resolve, 150))
+
   // Run cleanup from previous route
   if (currentCleanup && typeof currentCleanup === 'function') {
     currentCleanup()
@@ -87,14 +94,18 @@ function router() {
 
   const hash = location.hash.replace('#', '') || '/'
   const route = routes[hash] ?? { view: () => '<h2>404</h2><p>Página não encontrada</p>' }
-  const app = document.getElementById('app')
-  if (app) {
-    app.innerHTML = route.view()
-    const cleanup = route.init?.()
-    if (cleanup && typeof cleanup === 'function') {
-      currentCleanup = cleanup
-    }
+  
+  app.innerHTML = route.view()
+  const cleanup = route.init?.()
+  if (cleanup && typeof cleanup === 'function') {
+    currentCleanup = cleanup
   }
+
+  // Fade in
+  app.classList.remove('page-transitioning-out')
+  app.classList.add('page-transitioning-in')
+  await new Promise(resolve => setTimeout(resolve, 150))
+  app.classList.remove('page-transitioning-in')
 
   document.querySelectorAll('nav a').forEach(a => {
     const href = (a as HTMLAnchorElement).getAttribute('href') || '#/'

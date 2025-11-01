@@ -1,5 +1,6 @@
 import type { Game } from './types'
 import { addScore } from '../components/score-system'
+import { vibrateSuccess, vibrateError } from '../components/haptic'
 import './choose-for-trashbin.css'
 
 type BinType = 'papel' | 'plastico' | 'metal' | 'vidro' | 'organico'
@@ -201,6 +202,13 @@ export const ChooseForTrashbinGame: Game = {
     function resolveRound(isCorrect: boolean, chosenBtn: HTMLButtonElement) {
       if (resolving) return
       resolving = true
+
+      // Haptic feedback
+      if (isCorrect) {
+        vibrateSuccess()
+      } else {
+        vibrateError()
+      }
 
       const all = Array.from(document.querySelectorAll<HTMLButtonElement>('.cftb-option'))
       all.forEach(btn => {

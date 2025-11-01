@@ -39,6 +39,22 @@ function render() {
   const unlockedBadges = badges.filter(b => b.unlocked)
   const lockedBadges = badges.filter(b => !b.unlocked)
   
+  // Empty state - no games played yet
+  if (data.totalPoints === 0 && data.gamesPlayed === 0) {
+    root.innerHTML = `
+      <div class="stats-empty-state">
+        <i class="fa-sharp-duotone fa-gamepad" style="font-size: 4rem; color: var(--primary); opacity: 0.5; margin-bottom: 1rem;"></i>
+        <h3>NENHUM JOGO JOGADO AINDA</h3>
+        <p>Comece a jogar para acumular pontos e desbloquear conquistas!</p>
+        <a href="#/ecogames" class="btn" style="margin-top: 1rem;">
+          <i class="fa-sharp-duotone fa-gamepad" style="margin-right: 0.5rem;"></i>
+          COMEÇAR A JOGAR
+        </a>
+      </div>
+    `
+    return
+  }
+  
   root.innerHTML = `
     <div class="stats-container">
       <!-- Level Card -->
@@ -119,7 +135,7 @@ function render() {
       
       <!-- Reset Button -->
       <div class="reset-section">
-        <button id="btn-reset-stats" class="btn btn-ghost">
+        <button id="btn-reset-stats" class="btn">
           <i class="fa-sharp-duotone fa-trash-can"></i>
           Resetar Estatísticas
         </button>

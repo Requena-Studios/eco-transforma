@@ -1,5 +1,6 @@
 import type { Game } from './types'
 import { addScore } from '../components/score-system'
+import { vibrateSuccess, vibrateError } from '../components/haptic'
 
 type Q = { q: string; options: string[] }
 type RunQ = { q: string; options: string[]; answer: number }
@@ -121,6 +122,15 @@ export const QuizGame: Game = {
 
     function handleAnswer(i: number) {
       const q = QUESTIONS[index]
+      const isCorrect = i === q.answer
+      
+      // Haptic feedback
+      if (isCorrect) {
+        vibrateSuccess()
+      } else {
+        vibrateError()
+      }
+      
       const buttons = stage.querySelectorAll<HTMLButtonElement>('.quiz-opt')
       buttons.forEach((b, k) => {
         b.disabled = true
@@ -139,7 +149,7 @@ export const QuizGame: Game = {
           `)
         }
       })
-      if (i === q.answer) score++
+      if (isCorrect) score++
 
       const next = document.createElement('button')
       next.className = 'btn quiz-next'

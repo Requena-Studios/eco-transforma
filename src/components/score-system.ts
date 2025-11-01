@@ -1,3 +1,5 @@
+import { vibrateAchievement } from './haptic'
+
 const STORAGE_KEY = 'eco:score'
 
 export type ScoreEntry = {
@@ -154,6 +156,9 @@ function checkAndUnlockBadges(data: ScoreData): void {
 }
 
 function showBadgeNotification(badge: Omit<Badge, 'unlocked'>): void {
+  // Haptic feedback for achievement
+  vibrateAchievement()
+  
   // Simple toast notification
   const toast = document.createElement('div')
   toast.className = 'badge-toast'
