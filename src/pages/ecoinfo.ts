@@ -5,19 +5,19 @@ type EcoItem = {
     tempo_decomposicao: string; exemplos?: string[]; observacoes?: string;
     icone?: string; img?: string
 }
-type EcoScanDB = { bins: EcoBin[]; items: EcoItem[] }
+type EcoInfoDB = { bins: EcoBin[]; items: EcoItem[] }
 
 const DATA_URL = `${import.meta.env.BASE_URL}data/ecoscan-items.json`
 const IMG = (p?: string) => p ? `${import.meta.env.BASE_URL}img/${p}` : ''
 
-async function loadDB(): Promise<EcoScanDB> {
+async function loadDB(): Promise<EcoInfoDB> {
     const res = await fetch(DATA_URL, { cache: 'no-cache' })
     return await res.json()
 }
 
 // injects minimal CSS needed for scroll and modal close button layering/position
 function ensureStyles() {
-    const id = 'ecoscan-styles'
+    const id = 'ecoinfo-styles'
     if (document.getElementById(id)) return
     const style = document.createElement('style')
     style.id = id
@@ -70,22 +70,22 @@ function showModal(html: string) {
     document.body.appendChild(overlay)
 }
 
-export function EcoScan() {
+export function EcoInfo() {
     return /*html*/`
     <section class="shout">
       <h2 class="games-h2">
-        <i class="fa-sharp-duotone fa-camera"></i>
-        ECOSCAN
+        <i class="fa-sharp-duotone fa-circle-info"></i>
+        ECOINFO
       </h2>
-      <div id="ecoscan-root"></div>
+      <div id="ecoinfo-root"></div>
     </section>
   `
 }
 
-export async function initEcoScan() {
+export async function initEcoInfo() {
     ensureStyles()
 
-    const host = document.getElementById('ecoscan-root') as HTMLDivElement | null
+    const host = document.getElementById('ecoinfo-root') as HTMLDivElement | null
     if (!host) return
     const root = host as HTMLDivElement; // 👈 fixa o narrowing para closures
 
@@ -93,7 +93,7 @@ export async function initEcoScan() {
     const bins = db.bins.filter(b => ['PAPEL', 'PLÁSTICO', 'VIDRO', 'METAL', 'ORGÂNICO'].includes(b.id))
 
     root.innerHTML = `
-    <div class="ecoscan-filters card">
+    <div class="ecoinfo-filters card">
       <div class="filters-wrap">
         ${bins.map(b => `
           <button class="filter-chip" data-bin="${b.id}" aria-pressed="false" title="${b.nome}">

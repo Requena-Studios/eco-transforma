@@ -4,7 +4,7 @@
 
 ## 🎯 Objetivo
 Promover educação ambiental de forma interativa, com uso de:
-- Escaneamento de resíduos (**EcoScan**)
+- Informações sobre resíduos (**EcoInfo**)
 - Minijogos educativos (**EcoJogos**)
 - Localização de ecopontos (**EcoPontos**)
 

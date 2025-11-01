@@ -20,7 +20,7 @@ const updateSW = registerSW({
 
 import './style.css'
 import { Home, initHome } from './pages/home'
-import { EcoScan, initEcoScan } from './pages/ecoscan'
+import { EcoInfo, initEcoInfo } from './pages/ecoinfo'
 import { EcoGames, initEcoGames } from './pages/ecogames'
 import { EcoPontos, initEcoPontos } from './pages/ecopontos'
 import { DebugAssets, initDebugAssets } from './pages/debug-assets'
@@ -30,7 +30,7 @@ type Route = { view: () => string, init?: () => void }
 
 const routes: Record<string, Route> = {
   '/': { view: Home, init: initHome },
-  '/ecoscan': { view: EcoScan, init: initEcoScan },
+  '/ecoinfo': { view: EcoInfo, init: initEcoInfo },
   '/ecogames': { view: EcoGames, init: initEcoGames },
   '/ecopontos': { view: EcoPontos, init: initEcoPontos },
   '/debug-assets': { view: DebugAssets, init: initDebugAssets },

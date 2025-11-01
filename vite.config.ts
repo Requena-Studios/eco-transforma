@@ -52,7 +52,7 @@ export default defineConfig({
                     { src: 'screenshots/wide.png', sizes: '1600x900', type: 'image/png', form_factor: 'wide', label: 'Tela inicial (desktop)' }
                 ],
                 shortcuts: [
-                    { name: 'EcoScan', short_name: 'EcoScan', url: '/eco-transforma/#/ecoscan', icons: [{ src: 'icons/192.png', sizes: '192x192', type: 'image/png' }] },
+                    { name: 'EcoInfo', short_name: 'EcoInfo', url: '/eco-transforma/#/ecoinfo', icons: [{ src: 'icons/192.png', sizes: '192x192', type: 'image/png' }] },
                     { name: 'EcoJogos', short_name: 'EcoJogos', url: '/eco-transforma/#/ecogames', icons: [{ src: 'icons/192.png', sizes: '192x192', type: 'image/png' }] },
                     { name: 'EcoPontos', short_name: 'EcoPontos', url: '/eco-transforma/#/ecopontos', icons: [{ src: 'icons/192.png', sizes: '192x192', type: 'image/png' }] }
                 ]

@@ -679,7 +679,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
 /* === filtros (flex-wrap) === */
-.ecoscan-filters .filters-wrap {
+.ecoinfo-filters .filters-wrap {
     display: flex;
     flex-wrap: wrap;
     gap: .5rem;
