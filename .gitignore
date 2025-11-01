@@ -34,3 +34,6 @@ Thumbs.db
 
 # PWA cache local
 workbox-cache/
+
+# Keep agents folder in git (documentation)
+!agents/

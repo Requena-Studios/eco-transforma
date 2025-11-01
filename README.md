@@ -31,3 +31,14 @@ npm run preview
 ## 📄 Licença
 
 Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 🤖 AI Agents
+
+Este projeto possui **agents especializados** em [`/agents`](./agents/) que documentam padrões e melhores práticas:
+
+- 🎨 **[Frontend Expert](./agents/eco-frontend-expert.md)** - TypeScript, HTML, CSS
+- ⚡ **[Performance Expert](./agents/eco-performance-expert.md)** - Web Vitals, Otimização
+- ♿ **[Accessibility Expert](./agents/eco-a11y-expert.md)** - WCAG AA, ARIA
+- 📱 **[PWA Expert](./agents/eco-pwa-expert.md)** - Service Workers, Offline
+
+Consulte os agents durante o desenvolvimento para seguir os padrões do projeto!
