@@ -55,6 +55,7 @@ export async function installPWA(): Promise<void> {
 export { isInstalled }
 
 import './style.css'
+import { initNetworkStatus } from './components/network-status'
 import { Home, initHome } from './pages/home'
 import { EcoInfo, initEcoInfo } from './pages/ecoinfo'
 import { EcoGames, initEcoGames } from './pages/ecogames'
@@ -103,6 +104,9 @@ function router() {
 if (sessionStorage.getItem(UPDATE_FLAG) === '1') {
   if (location.hash !== '#/updating') location.hash = '#/updating'
 }
+
+// Initialize network status indicator
+initNetworkStatus()
 
 window.addEventListener('hashchange', router)
 window.addEventListener('load', router)
