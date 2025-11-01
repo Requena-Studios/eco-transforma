@@ -160,7 +160,7 @@ function showBadgeNotification(badge: Omit<Badge, 'unlocked'>): void {
   toast.innerHTML = `
     <i class="fa-sharp-duotone ${badge.icon}"></i>
     <div>
-      <strong>Novo Badge!</strong>
+      <strong>Nova Conquista!</strong>
       <span>${badge.name}</span>
     </div>
   `

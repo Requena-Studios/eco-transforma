@@ -45,16 +45,16 @@ function render() {
       <div class="stats-card level-card">
         <div class="level-badge">
           <i class="fa-sharp-duotone fa-star"></i>
-          <span class="level-number">Nível ${level.level}</span>
+          <span class="level-number">NÍVEL ${level.level}</span>
         </div>
-        <h3>${level.title}</h3>
+        <h3>${level.title.toUpperCase()}</h3>
         <div class="level-progress">
           <div class="progress-bar">
             <div class="progress-fill" style="width: ${getProgressPercentage(data.totalPoints, level.nextLevelPoints)}%"></div>
           </div>
           ${level.nextLevelPoints > 0 
             ? `<small>${data.totalPoints} / ${level.nextLevelPoints} pontos</small>` 
-            : `<small>Nível Máximo!</small>`}
+            : `<small>NÍVEL MÁXIMO!</small>`}
         </div>
       </div>
       
@@ -63,37 +63,37 @@ function render() {
         <div class="stat-item">
           <i class="fa-sharp-duotone fa-coins"></i>
           <strong>${data.totalPoints}</strong>
-          <span>Pontos Totais</span>
+          <span>PONTOS TOTAIS</span>
         </div>
         <div class="stat-item">
           <i class="fa-sharp-duotone fa-gamepad"></i>
           <strong>${data.gamesPlayed}</strong>
-          <span>Jogos Jogados</span>
+          <span>JOGOS JOGADOS</span>
         </div>
         <div class="stat-item">
           <i class="fa-sharp-duotone fa-circle-check"></i>
           <strong>${data.gamesCompleted}</strong>
-          <span>Jogos Completos</span>
+          <span>JOGOS COMPLETOS</span>
         </div>
         <div class="stat-item">
           <i class="fa-sharp-duotone fa-trophy"></i>
           <strong>${unlockedBadges.length}/${badges.length}</strong>
-          <span>Badges</span>
+          <span>CONQUISTAS</span>
         </div>
       </div>
       
       <!-- Badges Section -->
       <div class="badges-section">
-        <h3><i class="fa-sharp-duotone fa-award"></i> Conquistas</h3>
+        <h3><i class="fa-sharp-duotone fa-award"></i> CONQUISTAS</h3>
         
         ${unlockedBadges.length > 0 ? `
           <div class="badges-grid">
             ${unlockedBadges.map(badge => renderBadge(badge, true)).join('')}
           </div>
-        ` : '<p class="no-badges">Jogue mais para desbloquear badges!</p>'}
+        ` : '<p class="no-badges">Jogue mais para desbloquear conquistas!</p>'}
         
         ${lockedBadges.length > 0 ? `
-          <h4 class="locked-title">Bloqueadas</h4>
+          <h4 class="locked-title">BLOQUEADAS</h4>
           <div class="badges-grid locked">
             ${lockedBadges.map(badge => renderBadge(badge, false)).join('')}
           </div>
@@ -103,7 +103,7 @@ function render() {
       <!-- Recent Activity -->
       ${data.history.length > 0 ? `
         <div class="activity-section">
-          <h3><i class="fa-sharp-duotone fa-clock-rotate-left"></i> Atividade Recente</h3>
+          <h3><i class="fa-sharp-duotone fa-clock-rotate-left"></i> ATIVIDADE RECENTE</h3>
           <div class="activity-list">
             ${data.history.slice(0, 10).map(entry => `
               <div class="activity-item">
