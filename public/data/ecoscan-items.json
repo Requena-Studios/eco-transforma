@@ -146,6 +146,166 @@
       "observacoes": "DESCARTE APENAS EM ECOPONTO.",
       "icone": "fa-sharp-duotone fa-plug",
       "img": "assets/eletronicos.webp"
+    },
+    {
+      "id": "CAIXINHA_SUCO_LEITE",
+      "nome": "CAIXINHA DE SUCO/LEITE",
+      "material": "PAPEL, ALUMÍNIO E PLÁSTICO",
+      "lixeira": "PAPEL",
+      "tempo_decomposicao": "MAIS DE 100 ANOS",
+      "exemplos": [ "CAIXAS DE SUCO", "ÁGUA DE COCO", "LEITE" ],
+      "observacoes": "ACHATE AS CAIXAS.",
+      "icone": "fa-sharp-duotone fa-box-taped"
+    },
+    {
+      "id": "SACOLA_PAPEL",
+      "nome": "SACO/SACOLA DE PAPEL",
+      "material": "PAPEL",
+      "lixeira": "PAPEL",
+      "tempo_decomposicao": "DE 3 A 6 MESES",
+      "exemplos": [ "SAQUINHOS DE PAPEL PARA TRANSPORTE DE LANCHES", "SACOLAS DE PRESENTE DE PAPEL" ],
+      "observacoes": "DOBRE ANTES DE JOGAR.",
+      "icone": "fa-sharp-duotone fa-bag-shopping"
+    },
+    {
+      "id": "CANUDO",
+      "nome": "CANUDO",
+      "material": "PLÁSTICO",
+      "lixeira": "PLÁSTICO",
+      "tempo_decomposicao": "ENTRE 200 E 450 ANOS",
+      "exemplos": [ "CANUDOS PLÁSTICOS DE BEBIDAS" ],
+      "observacoes": "SUBSTITUA OS CANUDOS PLÁSTICOS PELO CANUDO DE METAL, QUE É REUTILIZÁVEL.",
+      "icone": "fa-sharp-duotone fa-straw"
+    },
+    {
+      "id": "ISOPOR_LIMPO",
+      "nome": "ISOPOR SEM CONTAMINAÇÃO",
+      "material": "PLÁSTICO",
+      "lixeira": "PLÁSTICO",
+      "tempo_decomposicao": "DE 150 A 400 ANOS",
+      "exemplos": [ "ISOPOR DE PROTEÇÃO DE MÓVEIS E ELETRODOMÉSTICOS", "ISOPOR UTILIZADO EM MAQUETES ESCOLARES" ],
+      "observacoes": "SOMENTE RECICLÁVEL SE NÃO TIVER ENTRADO EM CONTATO COM ALIMENTOS OU TINTA. QUEBRE-OS PARA REDUZIR O VOLUME.",
+      "icone": "fa-sharp-duotone fa-cube"
+    },
+    {
+      "id": "DESCARTAVEIS",
+      "nome": "DESCARTÁVEIS",
+      "material": "PLÁSTICO",
+      "lixeira": "PLÁSTICO",
+      "tempo_decomposicao": "DE 250 A 400 ANOS",
+      "exemplos": [ "PRATINHOS DE FESTA", "EMBALAGENS DE BOLO", "COPOS E TALHERES DESCARTÁVEIS" ],
+      "observacoes": "SUBSTITUA OS DESCARTÁVEIS POR MATERIAIS QUE PODEM SER REUTILIZADOS.",
+      "icone": "fa-sharp-duotone fa-utensils"
+    },
+    {
+      "id": "EMBALAGENS_PLASTICAS",
+      "nome": "EMBALAGENS PLÁSTICAS",
+      "material": "PLÁSTICO",
+      "lixeira": "PLÁSTICO",
+      "tempo_decomposicao": "DE 100 A 400 ANOS",
+      "exemplos": [ "EMBALAGENS DE BISCOITOS", "BALAS", "ARROZ", "FEIJÃO", "IOGURTE", "DETERGENTE" ],
+      "observacoes": "COMPRE APENAS O NECESSÁRIO E REUTILIZE AS EMBALAGENS SEMPRE QUE POSSÍVEL.",
+      "icone": "fa-sharp-duotone fa-box"
+    },
+    {
+      "id": "PRATO_COPO_VIDRO",
+      "nome": "PRATO/COPO DE VIDRO",
+      "material": "VIDRO",
+      "lixeira": "VIDRO",
+      "tempo_decomposicao": "MILHARES DE ANOS",
+      "exemplos": [ "COPOS DE VIDRO", "TRAVESSAS", "PRATO DE REFEIÇÃO E SOBREMESA" ],
+      "observacoes": "PROTEJA OS CACOS E IDENTIFIQUE-OS.",
+      "icone": "fa-sharp-duotone fa-plate-utensils"
+    },
+    {
+      "id": "FRASCOS_VIDRO",
+      "nome": "FRASCOS DE VIDRO",
+      "material": "VIDRO",
+      "lixeira": "VIDRO",
+      "tempo_decomposicao": "MILHARES DE ANOS",
+      "exemplos": [ "FRASCOS DE PERFUME", "PORTA CONDIMENTOS" ],
+      "observacoes": "PROTEJA OS CACOS E IDENTIFIQUE-OS.",
+      "icone": "fa-sharp-duotone fa-jar"
+    },
+    {
+      "id": "PARAFUSO",
+      "nome": "PARAFUSO",
+      "material": "METAL",
+      "lixeira": "METAL",
+      "tempo_decomposicao": "MAIS DE 1000 ANOS",
+      "exemplos": [ "PREGOS", "PARAFUSOS", "FECHADURAS" ],
+      "observacoes": "PROTEJA-OS NO DESCARTE.",
+      "icone": "fa-sharp-duotone fa-screwdriver-wrench"
+    },
+    {
+      "id": "LATARIAS",
+      "nome": "LATARIAS",
+      "material": "METAL",
+      "lixeira": "METAL",
+      "tempo_decomposicao": "DE 200 A 500 ANOS",
+      "exemplos": [ "LATAS DE ALIMENTOS EM CONSERVA", "LEITE EM PÓ", "FÓRMULA", "CEREAIS" ],
+      "observacoes": "PROTEJA-OS NO DESCARTE.",
+      "icone": "fa-sharp-duotone fa-cans-food"
+    },
+    {
+      "id": "CHICLETE",
+      "nome": "CHICLETE",
+      "material": "BORRACHA SINTÉTICA",
+      "lixeira": "ORGÂNICO",
+      "tempo_decomposicao": "CERCA DE 5 ANOS",
+      "exemplos": [ "GOMAS DE MASCAR EM GERAL" ],
+      "observacoes": "SUBSTITUA O CHICLETE POR BALAS, QUE PODEM SER INGERIDAS.",
+      "icone": "fa-sharp-duotone fa-candy"
+    },
+    {
+      "id": "ESPONJA",
+      "nome": "ESPONJA",
+      "material": "PLÁSTICO",
+      "lixeira": "ORGÂNICO",
+      "tempo_decomposicao": "CENTENAS DE ANOS",
+      "exemplos": [ "ESPONJAS DE BANHO", "ESPONJAS DE LAVAR LOUÇAS" ],
+      "observacoes": "SUBSTITUA PELA BUCHA VEGETAL, QUE SE DECOMPÕE EM ATÉ 4 MESES.",
+      "icone": "fa-sharp-duotone fa-sponge"
+    },
+    {
+      "id": "APARAS_LAPIS",
+      "nome": "APARAS DE LÁPIS",
+      "material": "MADEIRA E GRAFITE",
+      "lixeira": "ORGÂNICO",
+      "tempo_decomposicao": "ATÉ 15 ANOS",
+      "exemplos": [ "LÁPIS", "CASQUINHAS DE LÁPIS" ],
+      "observacoes": "APONTE SOMENTE O NECESSÁRIO E EVITE DERRUBAR OS LÁPIS NO CHÃO PARA NÃO QUEBRAR O GRAFITE.",
+      "icone": "fa-sharp-duotone fa-pencil"
+    },
+    {
+      "id": "PAPEL_CONTAMINADO",
+      "nome": "PAPEL CONTAMINADO",
+      "material": "PAPEL",
+      "lixeira": "ORGÂNICO",
+      "tempo_decomposicao": "DE SEMANAS A CENTENAS DE ANOS",
+      "exemplos": [ "PAPEL HIGIÊNICO", "GUARDANAPO", "LENÇO UMEDECIDO", "PAPEL TOALHA" ],
+      "observacoes": "USE SOMENTE O NECESSÁRIO, EVITANDO O DESPERDÍCIO.",
+      "icone": "fa-sharp-duotone fa-toilet-paper"
+    },
+    {
+      "id": "ISOPOR_CONTAMINADO",
+      "nome": "ISOPOR CONTAMINADO",
+      "material": "PLÁSTICO",
+      "lixeira": "ORGÂNICO",
+      "tempo_decomposicao": "DE 150 A 400 ANOS",
+      "exemplos": [ "EMBALAGENS DE HAMBURGUER", "COMIDA", "CREPE" ],
+      "observacoes": "ISOPOR QUE TEVE CONTATO COM ALIMENTOS OU TINTA DEVE IR PARA O ORGÂNICO. QUEBRE-OS PARA REDUZIR O VOLUME.",
+      "icone": "fa-sharp-duotone fa-box-open-full"
+    },
+    {
+      "id": "FRALDA_DESCARTAVEL",
+      "nome": "FRALDA DESCARTÁVEL",
+      "material": "PLÁSTICO E ALGODÃO",
+      "lixeira": "ORGÂNICO",
+      "tempo_decomposicao": "CERCA DE 450 ANOS",
+      "exemplos": [ "FRALDAS DESCARTÁVEIS INFANTIS", "GERIÁTRICAS", "DE ANIMAIS" ],
+      "observacoes": "ENROLE-AS E SELE BEM ANTES DE DESCARTAR.",
+      "icone": "fa-sharp-duotone fa-baby"
     }
   ]
 }

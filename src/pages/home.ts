@@ -1,6 +1,7 @@
 import mascoteImg from '/img/mascote.webp'
 import { openModal, closeModal } from '../components/modal';
 import { SOBRE_PAGES } from '../content/sobre';
+import { deferredPrompt, installPWA, isInstalled } from '../main';
 
 const DIALOGS = [
     'OLÁ! EU SOU O SUCATECO,<br/>MASCOTINHO DO ECOTRANSFORMA.',
@@ -70,46 +71,28 @@ export function initHome() {
         progress.textContent = `${idx + 1}/${DIALOGS.length}`
     }
 
-    function isInstalled(): boolean {
-        const mq = (q: string) => matchMedia(q).matches;
-
-        const appLike =
-            mq('(display-mode: fullscreen)') ||
-            mq('(display-mode: standalone)') ||
-            mq('(display-mode: window-controls-overlay)') ||
-            mq('(display-mode: minimal-ui)');
-
-        const iosStandalone = (navigator as any).standalone === true;
-
-        const twa = document.referrer?.startsWith('android-app://') ?? false;
-
-        return appLike || iosStandalone || twa;
+    const updateInstallButton = () => {
+        if (deferredPrompt && !isInstalled()) {
+            divInstall?.classList.remove('hidden')
+        } else {
+            divInstall?.classList.add('hidden')
+        }
     }
 
-    let deferredPrompt: BeforeInstallPromptEvent | null = null
+    // Check initial state
+    updateInstallButton()
 
-    window.addEventListener('beforeinstallprompt', (e: Event) => {
-        e.preventDefault()
-        deferredPrompt = e as BeforeInstallPromptEvent
-        if (isInstalled()) return
-        divInstall?.classList.remove('hidden')
-    }, { once: true });
+    // Listen for PWA events
+    const onInstallable = () => updateInstallButton()
+    const onInstalled = () => updateInstallButton()
+    
+    window.addEventListener('pwa-installable', onInstallable)
+    window.addEventListener('pwa-installed', onInstalled)
 
-    async function installPWA(): Promise<void> {
-        if (!deferredPrompt) return
-        if (isInstalled()) return
-        await deferredPrompt.prompt()
-        await deferredPrompt.userChoice
-        deferredPrompt = null;
-        divInstall?.classList.add('hidden');
-    }
-
-    window.addEventListener('appinstalled', () => {
-        deferredPrompt = null;
-        divInstall?.classList.add('hidden');
-    });
-
-    btnInstall?.addEventListener('click', installPWA)
+    btnInstall?.addEventListener('click', async () => {
+        await installPWA()
+        updateInstallButton()
+    })
 
     const next = () => { if (idx < DIALOGS.length - 1) idx++; render() }
     const prev = () => { if (idx > 0) idx--; render() }
@@ -190,4 +173,10 @@ export function initHome() {
     idx = 0
 
     render()
+
+    // Return cleanup function
+    return () => {
+        window.removeEventListener('pwa-installable', onInstallable)
+        window.removeEventListener('pwa-installed', onInstalled)
+    }
 }

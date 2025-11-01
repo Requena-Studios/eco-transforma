@@ -18,6 +18,42 @@ const updateSW = registerSW({
   onOfflineReady() { /* noop */ }
 })
 
+// PWA Install Logic (Global)
+export let deferredPrompt: BeforeInstallPromptEvent | null = null
+
+function isInstalled(): boolean {
+  const mq = (q: string) => matchMedia(q).matches
+  const appLike =
+    mq('(display-mode: fullscreen)') ||
+    mq('(display-mode: standalone)') ||
+    mq('(display-mode: window-controls-overlay)') ||
+    mq('(display-mode: minimal-ui)')
+  const iosStandalone = (navigator as any).standalone === true
+  const twa = document.referrer?.startsWith('android-app://') ?? false
+  return appLike || iosStandalone || twa
+}
+
+window.addEventListener('beforeinstallprompt', (e: Event) => {
+  e.preventDefault()
+  deferredPrompt = e as BeforeInstallPromptEvent
+  window.dispatchEvent(new CustomEvent('pwa-installable'))
+})
+
+window.addEventListener('appinstalled', () => {
+  deferredPrompt = null
+  window.dispatchEvent(new CustomEvent('pwa-installed'))
+})
+
+export async function installPWA(): Promise<void> {
+  if (!deferredPrompt) return
+  if (isInstalled()) return
+  await deferredPrompt.prompt()
+  await deferredPrompt.userChoice
+  deferredPrompt = null
+}
+
+export { isInstalled }
+
 import './style.css'
 import { Home, initHome } from './pages/home'
 import { EcoInfo, initEcoInfo } from './pages/ecoinfo'
@@ -26,7 +62,7 @@ import { EcoPontos, initEcoPontos } from './pages/ecopontos'
 import { DebugAssets, initDebugAssets } from './pages/debug-assets'
 import { Updating, initUpdating } from './pages/updating'
 
-type Route = { view: () => string, init?: () => void }
+type Route = { view: () => string, init?: () => void, cleanup?: () => void }
 
 const routes: Record<string, Route> = {
   '/': { view: Home, init: initHome },
@@ -37,13 +73,24 @@ const routes: Record<string, Route> = {
   '/updating': { view: Updating, init: initUpdating },
 }
 
+let currentCleanup: (() => void) | undefined
+
 function router() {
+  // Run cleanup from previous route
+  if (currentCleanup && typeof currentCleanup === 'function') {
+    currentCleanup()
+  }
+  currentCleanup = undefined
+
   const hash = location.hash.replace('#', '') || '/'
   const route = routes[hash] ?? { view: () => '<h2>404</h2><p>Página não encontrada</p>' }
   const app = document.getElementById('app')
   if (app) {
     app.innerHTML = route.view()
-    route.init?.()
+    const cleanup = route.init?.()
+    if (cleanup && typeof cleanup === 'function') {
+      currentCleanup = cleanup
+    }
   }
 
   document.querySelectorAll('nav a').forEach(a => {

@@ -31,6 +31,10 @@
     --bubble-speech-border-color: #000000b0;
     --bubble-speech-background-color: #55ff5530;
     --card-white-background-color: #ffffffcc;
+    /*********************/
+    --scrollbar-track: hsl(var(--eco-h) 20% 92%);
+    --scrollbar-thumb: hsl(var(--eco-h) 50% 60%);
+    --scrollbar-thumb-hover: hsl(var(--eco-h) var(--eco-s) var(--eco-l));
 }
 
 @media (display-mode: fullscreen), (display-mode: standalone), (display-mode: window-controls-overlay), (display-mode: minimal-ui) {
@@ -50,6 +54,42 @@
 
     .only-browser {
         display: block;
+    }
+}
+
+/* Custom Scrollbar - Thin & Themed */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+*::-webkit-scrollbar-thumb:active {
+    background: var(--primary-600);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *::-webkit-scrollbar-thumb {
+        transition: none;
     }
 }
 
