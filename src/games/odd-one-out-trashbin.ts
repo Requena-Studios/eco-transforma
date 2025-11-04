@@ -137,7 +137,7 @@ export const OddOneOutTrashbinGame: Game = {
 
           <div class="ootb-items-container">
             <div class="ootb-bins">
-              ${BINS.slice(0, 2).map(b => `
+              ${BINS.slice(0, 3).map(b => `
                 <button class="ootb-bin" data-bin="${b.id}" aria-label="${b.title}" style="--bin-color:${b.color}">
                   <div class="ootb-bin-frame">
                     <img class="img-fit" src="${b.img}" alt="Lixeira ${b.title}" />
@@ -154,15 +154,6 @@ export const OddOneOutTrashbinGame: Game = {
                 </div>
                 <div class="ootb-item-name">${current.name}</div>
               </div>
-
-              ${BINS.slice(2, 3).map(b => `
-                <button class="ootb-bin" data-bin="${b.id}" aria-label="${b.title}" style="--bin-color:${b.color}">
-                  <div class="ootb-bin-frame">
-                    <img class="img-fit" src="${b.img}" alt="Lixeira ${b.title}" />
-                  </div>
-                  <span class="ootb-bin-title">${b.title}</span>
-                </button>
-              `).join('')}
             </div>
 
             <div class="ootb-bins">
