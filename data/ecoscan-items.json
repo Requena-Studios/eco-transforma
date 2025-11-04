@@ -155,7 +155,8 @@
       "tempo_decomposicao": "MAIS DE 100 ANOS",
       "exemplos": [ "CAIXAS DE SUCO", "ÁGUA DE COCO", "LEITE" ],
       "observacoes": "ACHATE AS CAIXAS.",
-      "icone": "fa-sharp-duotone fa-box-taped"
+      "icone": "fa-sharp-duotone fa-box-taped",
+      "img": "assets/caixinha_suco_leite.webp"
     },
     {
       "id": "SACOLA_PAPEL",
@@ -165,7 +166,8 @@
       "tempo_decomposicao": "DE 3 A 6 MESES",
       "exemplos": [ "SAQUINHOS DE PAPEL PARA TRANSPORTE DE LANCHES", "SACOLAS DE PRESENTE DE PAPEL" ],
       "observacoes": "DOBRE ANTES DE JOGAR.",
-      "icone": "fa-sharp-duotone fa-bag-shopping"
+      "icone": "fa-sharp-duotone fa-bag-shopping",
+      "img": "assets/sacola_papel.webp"
     },
     {
       "id": "CANUDO",
@@ -175,7 +177,8 @@
       "tempo_decomposicao": "ENTRE 200 E 450 ANOS",
       "exemplos": [ "CANUDOS PLÁSTICOS DE BEBIDAS" ],
       "observacoes": "SUBSTITUA OS CANUDOS PLÁSTICOS PELO CANUDO DE METAL, QUE É REUTILIZÁVEL.",
-      "icone": "fa-sharp-duotone fa-straw"
+      "icone": "fa-sharp-duotone fa-straw",
+      "img": "assets/canudo.webp"
     },
     {
       "id": "ISOPOR_LIMPO",
@@ -185,7 +188,8 @@
       "tempo_decomposicao": "DE 150 A 400 ANOS",
       "exemplos": [ "ISOPOR DE PROTEÇÃO DE MÓVEIS E ELETRODOMÉSTICOS", "ISOPOR UTILIZADO EM MAQUETES ESCOLARES" ],
       "observacoes": "SOMENTE RECICLÁVEL SE NÃO TIVER ENTRADO EM CONTATO COM ALIMENTOS OU TINTA. QUEBRE-OS PARA REDUZIR O VOLUME.",
-      "icone": "fa-sharp-duotone fa-cube"
+      "icone": "fa-sharp-duotone fa-cube",
+      "img": "assets/isopor_limpo.webp"
     },
     {
       "id": "DESCARTAVEIS",
@@ -195,7 +199,8 @@
       "tempo_decomposicao": "DE 250 A 400 ANOS",
       "exemplos": [ "PRATINHOS DE FESTA", "EMBALAGENS DE BOLO", "COPOS E TALHERES DESCARTÁVEIS" ],
       "observacoes": "SUBSTITUA OS DESCARTÁVEIS POR MATERIAIS QUE PODEM SER REUTILIZADOS.",
-      "icone": "fa-sharp-duotone fa-utensils"
+      "icone": "fa-sharp-duotone fa-utensils",
+      "img": "assets/descartaveis_plastico.webp"
     },
     {
       "id": "EMBALAGENS_PLASTICAS",
@@ -205,7 +210,8 @@
       "tempo_decomposicao": "DE 100 A 400 ANOS",
       "exemplos": [ "EMBALAGENS DE BISCOITOS", "BALAS", "ARROZ", "FEIJÃO", "IOGURTE", "DETERGENTE" ],
       "observacoes": "COMPRE APENAS O NECESSÁRIO E REUTILIZE AS EMBALAGENS SEMPRE QUE POSSÍVEL.",
-      "icone": "fa-sharp-duotone fa-box"
+      "icone": "fa-sharp-duotone fa-box",
+      "img": "assets/embalagens_plasticas.webp"
     },
     {
       "id": "PRATO_COPO_VIDRO",
@@ -215,7 +221,8 @@
       "tempo_decomposicao": "MILHARES DE ANOS",
       "exemplos": [ "COPOS DE VIDRO", "TRAVESSAS", "PRATO DE REFEIÇÃO E SOBREMESA" ],
       "observacoes": "PROTEJA OS CACOS E IDENTIFIQUE-OS.",
-      "icone": "fa-sharp-duotone fa-plate-utensils"
+      "icone": "fa-sharp-duotone fa-plate-utensils",
+      "img": "assets/prato_copo_vidro.webp"
     },
     {
       "id": "FRASCOS_VIDRO",
@@ -225,7 +232,8 @@
       "tempo_decomposicao": "MILHARES DE ANOS",
       "exemplos": [ "FRASCOS DE PERFUME", "PORTA CONDIMENTOS" ],
       "observacoes": "PROTEJA OS CACOS E IDENTIFIQUE-OS.",
-      "icone": "fa-sharp-duotone fa-jar"
+      "icone": "fa-sharp-duotone fa-jar",
+      "img": "assets/frascos_vidro.webp"
     },
     {
       "id": "PARAFUSO",
@@ -235,7 +243,8 @@
       "tempo_decomposicao": "MAIS DE 1000 ANOS",
       "exemplos": [ "PREGOS", "PARAFUSOS", "FECHADURAS" ],
       "observacoes": "PROTEJA-OS NO DESCARTE.",
-      "icone": "fa-sharp-duotone fa-screwdriver-wrench"
+      "icone": "fa-sharp-duotone fa-screwdriver-wrench",
+      "img": "assets/parafuso.webp"
     },
     {
       "id": "LATARIAS",
@@ -245,7 +254,8 @@
       "tempo_decomposicao": "DE 200 A 500 ANOS",
       "exemplos": [ "LATAS DE ALIMENTOS EM CONSERVA", "LEITE EM PÓ", "FÓRMULA", "CEREAIS" ],
       "observacoes": "PROTEJA-OS NO DESCARTE.",
-      "icone": "fa-sharp-duotone fa-cans-food"
+      "icone": "fa-sharp-duotone fa-cans-food",
+      "img": "assets/latarias.webp"
     },
     {
       "id": "CHICLETE",
@@ -255,7 +265,8 @@
       "tempo_decomposicao": "CERCA DE 5 ANOS",
       "exemplos": [ "GOMAS DE MASCAR EM GERAL" ],
       "observacoes": "SUBSTITUA O CHICLETE POR BALAS, QUE PODEM SER INGERIDAS.",
-      "icone": "fa-sharp-duotone fa-candy"
+      "icone": "fa-sharp-duotone fa-candy",
+      "img": "assets/chiclete.webp"
     },
     {
       "id": "ESPONJA",
@@ -265,7 +276,8 @@
       "tempo_decomposicao": "CENTENAS DE ANOS",
       "exemplos": [ "ESPONJAS DE BANHO", "ESPONJAS DE LAVAR LOUÇAS" ],
       "observacoes": "SUBSTITUA PELA BUCHA VEGETAL, QUE SE DECOMPÕE EM ATÉ 4 MESES.",
-      "icone": "fa-sharp-duotone fa-sponge"
+      "icone": "fa-sharp-duotone fa-sponge",
+      "img": "assets/esponja.webp"
     },
     {
       "id": "APARAS_LAPIS",
@@ -275,7 +287,8 @@
       "tempo_decomposicao": "ATÉ 15 ANOS",
       "exemplos": [ "LÁPIS", "CASQUINHAS DE LÁPIS" ],
       "observacoes": "APONTE SOMENTE O NECESSÁRIO E EVITE DERRUBAR OS LÁPIS NO CHÃO PARA NÃO QUEBRAR O GRAFITE.",
-      "icone": "fa-sharp-duotone fa-pencil"
+      "icone": "fa-sharp-duotone fa-pencil",
+      "img": "assets/aparas_lapis.webp"
     },
     {
       "id": "PAPEL_CONTAMINADO",
@@ -285,7 +298,8 @@
       "tempo_decomposicao": "DE SEMANAS A CENTENAS DE ANOS",
       "exemplos": [ "PAPEL HIGIÊNICO", "GUARDANAPO", "LENÇO UMEDECIDO", "PAPEL TOALHA" ],
       "observacoes": "USE SOMENTE O NECESSÁRIO, EVITANDO O DESPERDÍCIO.",
-      "icone": "fa-sharp-duotone fa-toilet-paper"
+      "icone": "fa-sharp-duotone fa-toilet-paper",
+      "img": "assets/papel_contaminado.webp"
     },
     {
       "id": "ISOPOR_CONTAMINADO",
@@ -295,7 +309,8 @@
       "tempo_decomposicao": "DE 150 A 400 ANOS",
       "exemplos": [ "EMBALAGENS DE HAMBURGUER", "COMIDA", "CREPE" ],
       "observacoes": "ISOPOR QUE TEVE CONTATO COM ALIMENTOS OU TINTA DEVE IR PARA O ORGÂNICO. QUEBRE-OS PARA REDUZIR O VOLUME.",
-      "icone": "fa-sharp-duotone fa-box-open-full"
+      "icone": "fa-sharp-duotone fa-box-open-full",
+      "img": "assets/isopor_contaminado.webp"
     },
     {
       "id": "FRALDA_DESCARTAVEL",
@@ -305,7 +320,8 @@
       "tempo_decomposicao": "CERCA DE 450 ANOS",
       "exemplos": [ "FRALDAS DESCARTÁVEIS INFANTIS", "GERIÁTRICAS", "DE ANIMAIS" ],
       "observacoes": "ENROLE-AS E SELE BEM ANTES DE DESCARTAR.",
-      "icone": "fa-sharp-duotone fa-baby"
+      "icone": "fa-sharp-duotone fa-baby",
+      "img": "assets/fralda_descartavel.webp"
     }
   ]
 }
