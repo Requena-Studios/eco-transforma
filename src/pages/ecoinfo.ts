@@ -25,7 +25,7 @@ function ensureStyles() {
 /* eco-grid vertical scroll */
 .eco-grid {
   overflow-y: auto;
-  max-height: calc(100vh - 370px);
+  max-height: calc(100vh - 215px);
   padding-right: 2px; /* room for scrollbar */
 }
 
@@ -93,7 +93,7 @@ export async function initEcoInfo() {
     const bins = db.bins.filter(b => ['PAPEL', 'PLÁSTICO', 'VIDRO', 'METAL', 'ORGÂNICO'].includes(b.id))
 
     root.innerHTML = `
-    <div class="ecoinfo-filters card">
+    <div class="hidden ecoinfo-filters card">
       <div class="filters-wrap">
         ${bins.map(b => `
           <button class="filter-chip" data-bin="${b.id}" aria-pressed="false" title="${b.nome}">
