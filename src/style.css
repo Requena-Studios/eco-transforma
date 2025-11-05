@@ -157,6 +157,21 @@ h1, h2, h3, h4, h5, h6 {
 .logo {
     width: 60px;
     height: 60px;
+    animation: logo-wiggle 3s ease-in-out infinite;
+}
+
+@keyframes logo-wiggle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(7deg);
+    }
+
+    75% {
+        transform: rotate(-7deg);
+    }
 }
 
 .app-main {
@@ -185,9 +200,9 @@ h1, h2, h3, h4, h5, h6 {
         text-decoration: none;
         color: var(--moss);
         font-weight: 600;
-        font-size: .8rem;
+        font-size: .85rem;
         border-radius: 2rem;
-        padding: .5rem .6rem;
+        padding: .5rem .5rem;
     }
 
         .app-nav .app-nav-item a i {
@@ -213,7 +228,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: .3rem;
+    gap: .1rem;
 }
 
 .hero {
@@ -242,6 +257,25 @@ h1, h2, h3, h4, h5, h6 {
     max-height: 100%;
     aspect-ratio: 10 / 13;
     object-fit: contain;
+    animation: mascote-wiggle 3s ease-in-out infinite;
+}
+
+@keyframes mascote-wiggle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(-10deg);
+    }
+
+    75% {
+        transform: rotate(10deg);
+    }
 }
 
 .hero-bubble-container {
@@ -319,8 +353,7 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
 }
 
-    .btn i.fa-sharp-duotone,
-    .btn i.fa-duotone {
+    .btn i.fa-sharp-duotone, .btn i.fa-duotone {
         --fa-primary-color: var(--dt-on-primary-primary);
         --fa-secondary-color: var(--dt-on-primary-secondary);
         font-size: 1.25rem;
@@ -336,16 +369,14 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
-    .btn-ghost i.fa-sharp-duotone,
-    .btn-ghost i.fa-duotone {
+    .btn-ghost i.fa-sharp-duotone, .btn-ghost i.fa-duotone {
         --fa-primary-color: var(--primary-600);
         --fa-secondary-color: var(--mint);
         font-size: 1.25rem;
         vertical-align: -2px;
     }
 
-    .btn:active,
-    .btn-ghost:active {
+    .btn:active, .btn-ghost:active {
         transform: translateY(1px);
     }
 
@@ -406,8 +437,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: .5rem;
 }
 
-    .modal-footer .left,
-    .modal-footer .right {
+    .modal-footer .left, .modal-footer .right {
         display: flex;
         align-items: center;
         gap: .5rem;
@@ -431,7 +461,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.25rem;
     vertical-align: -2px;
 }
-
 /* ECOPONTOS */
 .eco-wrap {
     display: grid;
@@ -520,8 +549,6 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     opacity: .85;
 }
-
-
 /* ECOJOGOS – SELETOR */
 .games-wrap, .shout {
     display: grid;
@@ -569,7 +596,6 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     margin-top: .15rem;
 }
-
 /* área do jogo e toolbar */
 .games-toolbar {
     display: flex;
@@ -595,7 +621,6 @@ h1, h2, h3, h4, h5, h6 {
 .btn-game-exit {
     margin: 0 auto;
 }
-
 /* QUIZ */
 .quiz-wrap {
     display: grid;
@@ -718,7 +743,6 @@ h1, h2, h3, h4, h5, h6 {
         cursor: pointer;
         font-weight: 600;
     }
-
 /* === filtros (flex-wrap) === */
 .ecoinfo-filters .filters-wrap {
     display: flex;
@@ -776,7 +800,6 @@ h1, h2, h3, h4, h5, h6 {
         font-size: .75rem;
         font-weight: 700;
     }
-
 /* === grid de itens (cards) === */
 .eco-grid {
     display: grid;
@@ -839,7 +862,6 @@ h1, h2, h3, h4, h5, h6 {
     .eco-card-tile__txt small {
         opacity: .85;
     }
-
 /* === modal leve === */
 .eco-modal {
     position: fixed;
@@ -898,7 +920,6 @@ h1, h2, h3, h4, h5, h6 {
     margin: .6rem 0 0;
     padding-left: 1rem;
 }
-
 /* Title + version stack */
 .app-title {
     position: relative;
@@ -913,7 +934,6 @@ h1, h2, h3, h4, h5, h6 {
     opacity: .8;
     margin-top: .1rem;
 }
-
 /* Network Status Indicator */
 .network-status-icon {
     position: absolute;
@@ -958,7 +978,6 @@ h1, h2, h3, h4, h5, h6 {
             animation: none;
         }
 }
-
 /* Stats Page */
 .stats-container {
     display: flex;
@@ -1180,7 +1199,6 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     padding: 1rem;
 }
-
 /* Badge Toast Notification */
 .badge-toast {
     position: fixed;
@@ -1231,8 +1249,6 @@ h1, h2, h3, h4, h5, h6 {
         transition: none;
     }
 }
-
-
 /* Points earned text */
 .points-earned {
     color: var(--primary);
@@ -1240,8 +1256,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.1rem;
     margin-top: 0.5rem;
 }
-
-
 /* Empty State */
 .stats-empty-state {
     display: flex;
@@ -1263,8 +1277,6 @@ h1, h2, h3, h4, h5, h6 {
         margin: 0.5rem 0;
         max-width: 400px;
     }
-
-
 /* Page Transitions */
 .app-main {
     transition: opacity 0.15s ease-out;
